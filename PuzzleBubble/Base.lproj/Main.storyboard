@@ -15,11 +15,115 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti4-wP-zAK">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="00m-Fg-GdV"/>
+                                    <constraint firstAttribute="width" constant="250" id="jsL-4q-9Py"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="00m-Fg-GdV"/>
+                                        <exclude reference="jsL-4q-9Py"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="75" y="175" width="250" height="250"/>
+                                    <mask key="constraints">
+                                        <include reference="00m-Fg-GdV"/>
+                                        <include reference="jsL-4q-9Py"/>
+                                    </mask>
+                                </variation>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLD-eM-ebF">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="h1L-6H-kDb"/>
+                                    <constraint firstAttribute="height" constant="250" id="mQP-Ng-Ocz"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="mQP-Ng-Ocz"/>
+                                        <exclude reference="h1L-6H-kDb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="mQP-Ng-Ocz"/>
+                                        <include reference="h1L-6H-kDb"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="Hh4-ld-4Ur" kind="embed" id="6ha-qW-Wb9"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SLD-eM-ebF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Xx0-Rp-X4q"/>
+                            <constraint firstItem="SLD-eM-ebF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tca-uw-DIJ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ti4-wP-zAK"/>
+                                <exclude reference="SLD-eM-ebF"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Xx0-Rp-X4q"/>
+                                <exclude reference="tca-uw-DIJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Ti4-wP-zAK"/>
+                                <include reference="SLD-eM-ebF"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Xx0-Rp-X4q"/>
+                                <include reference="tca-uw-DIJ"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-69" y="390"/>
+        </scene>
+        <!--Grid Collection View Controller-->
+        <scene sceneID="LdZ-3Y-uD1">
+            <objects>
+                <collectionViewController id="Hh4-ld-4Ur" customClass="GridCollectionViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="br5-lz-afi">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qgb-mf-suy">
+                            <size key="itemSize" width="75" height="75"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="0SJ-k9-dcP" customClass="GridViewCell" customModule="PuzzleBubble" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.078431372550000003" green="0.23921568630000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="Hh4-ld-4Ur" id="PL4-tQ-3DR"/>
+                            <outlet property="delegate" destination="Hh4-ld-4Ur" id="O8l-Bm-Mkb"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qod-NR-PNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="586.5" y="390"/>
         </scene>
     </scenes>
 </document>

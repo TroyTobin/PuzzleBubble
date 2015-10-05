@@ -13,6 +13,8 @@
 		535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6051BC242A60029B18C /* PuzzleBubble.xcdatamodeld */; };
 		535FA6091BC242A60029B18C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535FA6081BC242A60029B18C /* Assets.xcassets */; };
 		535FA60C1BC242A60029B18C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535FA60A1BC242A60029B18C /* LaunchScreen.storyboard */; };
+		535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6151BC2958E0029B18C /* GridViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		535FA6081BC242A60029B18C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		535FA60B1BC242A60029B18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		535FA60D1BC242A60029B18C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewController.swift; sourceTree = "<group>"; };
+		535FA6151BC2958E0029B18C /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				535FA5FE1BC242A60029B18C /* AppDelegate.swift */,
 				535FA6001BC242A60029B18C /* ViewController.swift */,
 				535FA6021BC242A60029B18C /* Main.storyboard */,
+				535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */,
+				535FA6151BC2958E0029B18C /* GridViewCell.swift */,
 				535FA6081BC242A60029B18C /* Assets.xcassets */,
 				535FA60A1BC242A60029B18C /* LaunchScreen.storyboard */,
 				535FA60D1BC242A60029B18C /* Info.plist */,
@@ -138,7 +144,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				535FA6011BC242A60029B18C /* ViewController.swift in Sources */,
+				535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */,
 				535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */,
+				535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */,
 				535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
