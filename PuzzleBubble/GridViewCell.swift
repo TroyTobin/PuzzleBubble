@@ -11,4 +11,5 @@ import UIKit
 class GridViewCell: UICollectionViewCell {
   
   
+  @IBOutlet weak var gridLabel: UILabel!
 }

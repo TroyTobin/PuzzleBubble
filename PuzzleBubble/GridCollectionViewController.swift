@@ -29,6 +29,9 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     
     let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridViewCell
     gridCell.layer.cornerRadius = 10
+    
+    // @TODO Replace this with useful data
+    gridCell.gridLabel.text = "\(indexPath.item + 1)"
     return gridCell
   }
 }
