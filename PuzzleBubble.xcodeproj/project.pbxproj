@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA5FE1BC242A60029B18C /* AppDelegate.swift */; };
-		535FA6011BC242A60029B18C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6001BC242A60029B18C /* ViewController.swift */; };
+		535FA6011BC242A60029B18C /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6001BC242A60029B18C /* PuzzleViewController.swift */; };
 		535FA6041BC242A60029B18C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535FA6021BC242A60029B18C /* Main.storyboard */; };
 		535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6051BC242A60029B18C /* PuzzleBubble.xcdatamodeld */; };
 		535FA6091BC242A60029B18C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 535FA6081BC242A60029B18C /* Assets.xcassets */; };
 		535FA60C1BC242A60029B18C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535FA60A1BC242A60029B18C /* LaunchScreen.storyboard */; };
 		535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6151BC2958E0029B18C /* GridViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		53825C3D1BCA3F570056CDC3 /* PBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C3C1BCA3F570056CDC3 /* PBClient.swift */; settings = {ASSET_TAGS = (); }; };
+		53825C3F1BCA3F620056CDC3 /* PBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C3E1BCA3F620056CDC3 /* PBConstants.swift */; settings = {ASSET_TAGS = (); }; };
+		53825C411BCA40F10056CDC3 /* PBNetLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C401BCA40F10056CDC3 /* PBNetLayer.swift */; settings = {ASSET_TAGS = (); }; };
+		53825C431BCA4E370056CDC3 /* PuzzleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		535FA5FB1BC242A60029B18C /* PuzzleBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuzzleBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		535FA5FE1BC242A60029B18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		535FA6001BC242A60029B18C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		535FA6001BC242A60029B18C /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		535FA6031BC242A60029B18C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		535FA6061BC242A60029B18C /* PuzzleBubble.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PuzzleBubble.xcdatamodel; sourceTree = "<group>"; };
 		535FA6081BC242A60029B18C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -28,6 +32,10 @@
 		535FA60D1BC242A60029B18C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridCollectionViewController.swift; sourceTree = "<group>"; };
 		535FA6151BC2958E0029B18C /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
+		53825C3C1BCA3F570056CDC3 /* PBClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBClient.swift; sourceTree = "<group>"; };
+		53825C3E1BCA3F620056CDC3 /* PBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBConstants.swift; sourceTree = "<group>"; };
+		53825C401BCA40F10056CDC3 /* PBNetLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBNetLayer.swift; sourceTree = "<group>"; };
+		53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +68,10 @@
 		535FA5FD1BC242A60029B18C /* PuzzleBubble */ = {
 			isa = PBXGroup;
 			children = (
+				53825C3B1BCA3F3C0056CDC3 /* Client */,
 				535FA5FE1BC242A60029B18C /* AppDelegate.swift */,
-				535FA6001BC242A60029B18C /* ViewController.swift */,
+				535FA6001BC242A60029B18C /* PuzzleViewController.swift */,
+				53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */,
 				535FA6021BC242A60029B18C /* Main.storyboard */,
 				535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */,
 				535FA6151BC2958E0029B18C /* GridViewCell.swift */,
@@ -71,6 +81,16 @@
 				535FA6051BC242A60029B18C /* PuzzleBubble.xcdatamodeld */,
 			);
 			path = PuzzleBubble;
+			sourceTree = "<group>";
+		};
+		53825C3B1BCA3F3C0056CDC3 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				53825C3C1BCA3F570056CDC3 /* PBClient.swift */,
+				53825C3E1BCA3F620056CDC3 /* PBConstants.swift */,
+				53825C401BCA40F10056CDC3 /* PBNetLayer.swift */,
+			);
+			name = Client;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,10 +163,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				535FA6011BC242A60029B18C /* ViewController.swift in Sources */,
+				535FA6011BC242A60029B18C /* PuzzleViewController.swift in Sources */,
+				53825C411BCA40F10056CDC3 /* PBNetLayer.swift in Sources */,
 				535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */,
+				53825C3F1BCA3F620056CDC3 /* PBConstants.swift in Sources */,
 				535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */,
+				53825C431BCA4E370056CDC3 /* PuzzleSelectViewController.swift in Sources */,
 				535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */,
+				53825C3D1BCA3F570056CDC3 /* PBClient.swift in Sources */,
 				535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,6 +321,7 @@
 				535FA6121BC242A60029B18C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
