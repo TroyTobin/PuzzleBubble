@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qT7-8g-80h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Puzzle Select View Controller-->
+        <scene sceneID="QIb-7b-3Rj">
+            <objects>
+                <viewController id="qT7-8g-80h" customClass="PuzzleSelectViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="muK-hv-d3Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="PZG-Eu-svK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IJ6-yG-HLW">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uF-78-0hD">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="Fzy-Yd-So5"/>
+                                    <constraint firstAttribute="height" constant="400" id="Yjy-K9-hlN"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Fzy-Yd-So5"/>
+                                        <exclude reference="Yjy-K9-hlN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Fzy-Yd-So5"/>
+                                        <include reference="Yjy-K9-hlN"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="p8q-cN-k5X" kind="embed" id="oRs-ke-dgJ"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7uF-78-0hD" firstAttribute="centerX" secondItem="IJ6-yG-HLW" secondAttribute="centerX" id="5x7-bt-6Wo"/>
+                            <constraint firstItem="7uF-78-0hD" firstAttribute="centerY" secondItem="IJ6-yG-HLW" secondAttribute="centerY" id="KYd-L1-jTU"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="7uF-78-0hD"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="5x7-bt-6Wo"/>
+                                <exclude reference="KYd-L1-jTU"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="7uF-78-0hD"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="5x7-bt-6Wo"/>
+                                <include reference="KYd-L1-jTU"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="puzzleGroupsList" destination="7uF-78-0hD" id="S17-Zn-gFE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Eq-xU-idE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-850.5" y="436"/>
+        </scene>
+        <!--Puzzle View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PuzzleViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -145,10 +211,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="PuzzleQuestion" destination="883-Jd-IbD" id="oSk-J6-ag3"/>
+                        <outlet property="PuzzleVariables" destination="Kss-83-xvD" id="5Y9-8v-DPD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69" y="390"/>
+            <point key="canvasLocation" x="381" y="436"/>
         </scene>
         <!--Grid Collection View Controller-->
         <scene sceneID="LdZ-3Y-uD1">
@@ -216,7 +286,48 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qod-NR-PNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="586.5" y="390"/>
+            <point key="canvasLocation" x="1036.5" y="436"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Pzl-7u-dna">
+            <objects>
+                <viewController id="p8q-cN-k5X" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VBp-Qo-hO6">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tn9-6z-1ML">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gke-nV-DQ8">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gke-nV-DQ8" id="WtT-6O-0EX">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="394"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="tn9-6z-1ML"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="tn9-6z-1ML"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlS-zL-0df" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-850.5" y="1059"/>
         </scene>
     </scenes>
 </document>
