@@ -44,44 +44,104 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="mQP-Ng-Ocz"/>
                                         <exclude reference="h1L-6H-kDb"/>
+                                        <exclude reference="mQP-Ng-Ocz"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="mQP-Ng-Ocz"/>
                                         <include reference="h1L-6H-kDb"/>
+                                        <include reference="mQP-Ng-Ocz"/>
                                     </mask>
                                 </variation>
                                 <connections>
                                     <segue destination="Hh4-ld-4Ur" kind="embed" id="6ha-qW-Wb9"/>
                                 </connections>
                             </containerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="883-Jd-IbD">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="7Rs-GB-nfY"/>
+                                    <constraint firstAttribute="width" constant="250" id="kbs-lc-66d"/>
+                                </constraints>
+                                <attributedString key="attributedText"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Rs-GB-nfY"/>
+                                        <exclude reference="kbs-lc-66d"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="7Rs-GB-nfY"/>
+                                        <include reference="kbs-lc-66d"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kss-83-xvD">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="amH-L2-vkQ"/>
+                                    <constraint firstAttribute="width" constant="250" id="pkL-c2-Ivm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="amH-L2-vkQ"/>
+                                        <exclude reference="pkL-c2-Ivm"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="amH-L2-vkQ"/>
+                                        <include reference="pkL-c2-Ivm"/>
+                                    </mask>
+                                </variation>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Kss-83-xvD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="09O-pd-dh4"/>
+                            <constraint firstItem="Kss-83-xvD" firstAttribute="top" secondItem="SLD-eM-ebF" secondAttribute="bottom" constant="40" id="EXw-2B-LpW"/>
                             <constraint firstItem="SLD-eM-ebF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Xx0-Rp-X4q"/>
+                            <constraint firstItem="SLD-eM-ebF" firstAttribute="top" secondItem="883-Jd-IbD" secondAttribute="bottom" constant="40" id="Yrh-Tj-hz5"/>
+                            <constraint firstItem="883-Jd-IbD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kDg-Ea-y41"/>
                             <constraint firstItem="SLD-eM-ebF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tca-uw-DIJ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Ti4-wP-zAK"/>
                                 <exclude reference="SLD-eM-ebF"/>
+                                <exclude reference="883-Jd-IbD"/>
+                                <exclude reference="Kss-83-xvD"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="kDg-Ea-y41"/>
                                 <exclude reference="Xx0-Rp-X4q"/>
+                                <exclude reference="Yrh-Tj-hz5"/>
                                 <exclude reference="tca-uw-DIJ"/>
+                                <exclude reference="09O-pd-dh4"/>
+                                <exclude reference="EXw-2B-LpW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Ti4-wP-zAK"/>
                                 <include reference="SLD-eM-ebF"/>
+                                <include reference="883-Jd-IbD"/>
+                                <include reference="Kss-83-xvD"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="kDg-Ea-y41"/>
                                 <include reference="Xx0-Rp-X4q"/>
+                                <include reference="Yrh-Tj-hz5"/>
                                 <include reference="tca-uw-DIJ"/>
+                                <include reference="09O-pd-dh4"/>
+                                <include reference="EXw-2B-LpW"/>
                             </mask>
                         </variation>
                     </view>
@@ -95,6 +155,7 @@
             <objects>
                 <collectionViewController id="Hh4-ld-4Ur" customClass="GridCollectionViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="br5-lz-afi">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qgb-mf-suy">
@@ -105,7 +166,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gridCell" id="0SJ-k9-dcP" customClass="GridViewCell" customModule="PuzzleBubble" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
