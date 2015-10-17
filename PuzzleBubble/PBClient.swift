@@ -22,20 +22,23 @@ class PBClient: NSObject {
   }
   
   /// Get the list of puzzle groups that are currently available
-  func getPuzzleGroups() -> NSArray? {
-    var puzzleGroups:NSArray? = nil
+  func getPuzzleGroups(completionHandler: (results: AnyObject?, errorString: String?) -> Void) {
     
-    puzzleGroups = pbNet.parseGetPuzzleGroups()
-    
-    return puzzleGroups
+    /// Retrieve the puzzle groups via the PB Network Layer
+    pbNet.doParseGetReq(PBClient.ParseMethods.PuzzleGroups) { result, error in
+      if let inError = error {
+        completionHandler(results: nil, errorString: inError.localizedDescription)
+      } else {
+        completionHandler(results: result, errorString: nil)
+      }
+    }
   }
   
   /// Get the puzzle equation for the puzzle item in the puzzle group.
   func getPuzzleEquation(puzzleGroup:Int, puzzleItem:Int) -> String {
-    var equation:String = "Unknown"
+    let equation:String = "Unknown"
     
-    // retrieve the puzzle equation 
-    equation = pbNet.parseGetPuzzleEquation(puzzleGroup, puzzleItem:puzzleItem)
+    // @TODO retrieve the puzzle equation
     
     return equation
   }

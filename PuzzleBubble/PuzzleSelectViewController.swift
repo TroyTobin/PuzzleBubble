@@ -18,9 +18,10 @@ class PuzzleSelectViewController: UIViewController {
     super.viewDidLoad()
     
     /// Retrieve the list of puzzle groups available
-    
-    if let puzzleGroups = PBClient.sharedInstance.getPuzzleGroups() {
-      print(puzzleGroups)
+    PBClient.sharedInstance.getPuzzleGroups() { results, errorString in
+      
+      print("PuzzleGroup results = \(results)")
+      print("PuzzleGroup errorString = \(errorString)")
       
     }
   }

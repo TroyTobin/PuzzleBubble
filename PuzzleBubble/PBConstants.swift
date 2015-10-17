@@ -16,5 +16,13 @@ extension PBClient {
     static let ParseAPIKey     = "PUT KEY HERE"
     static let ParseRESTAPIKey = "PUT KEY HERE"
     
+    static let ParseBaseURL    = "https://api.parse.com/1/classes"
+  }
+  
+  // MARK: - Puzzle Bubble Methods
+  struct ParseMethods {
+    static let PuzzleGroups = "PuzzleGroups"
+    static let PuzzleGroup  = "PuzzleGroup"
+    static let PuzzleItem   = "PuzzleItem"
   }
 }
