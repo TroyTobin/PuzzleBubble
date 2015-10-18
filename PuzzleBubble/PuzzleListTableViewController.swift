@@ -56,7 +56,7 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
     /// get a reusable cell to populate
-    let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleGroupCell")! as UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleGroupCell")! as! PuzzleListViewCell
     
     /// get the student at the index
     let puzzleGroup = self.puzzles![indexPath.row] as! NSDictionary
@@ -65,6 +65,10 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     let description = puzzleGroup.valueForKey("description") as! String
    
     /// set the cell contents
+    cell.id = id
+    cell.puzzle = title
+    cell.prose = description
+    
     cell.textLabel?.text = title
     cell.detailTextLabel?.text = description
     
@@ -73,6 +77,15 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
   
   /// delegate function when cell selected.  Want to load student media url in web view
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    // @TODO select the puzzle
+    
+    let puzzleController = self.storyboard!.instantiateViewControllerWithIdentifier("PuzzleView") as! PuzzleViewController
+    
+    let puzzleGroup = self.puzzles![indexPath.row] as! NSDictionary
+    let id = puzzleGroup.valueForKey("id") as! Int
+    
+    puzzleController.puzzleGroup = id
+    
+    
+    self.presentViewController(puzzleController, animated: true, completion: nil)
   }
 }

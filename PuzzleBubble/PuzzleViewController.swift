@@ -13,13 +13,12 @@ class PuzzleViewController: UIViewController {
   @IBOutlet weak var PuzzleQuestion: UILabel!
   @IBOutlet weak var PuzzleVariables: UITextView!
   
-  var PuzzleGroup:Int? = nil
+  var puzzleGroup:Int? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    
-    
+    print("puzzleGroup selected = \(self.puzzleGroup)")
   }
 }
 
