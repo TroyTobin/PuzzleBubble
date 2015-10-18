@@ -71,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Eq-xU-idE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-850.5" y="436"/>
+            <point key="canvasLocation" x="-1581" y="436"/>
         </scene>
         <!--Puzzle View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -226,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="381" y="436"/>
+            <point key="canvasLocation" x="432" y="436"/>
         </scene>
         <!--Grid Collection View Controller-->
         <scene sceneID="LdZ-3Y-uD1">
@@ -298,7 +298,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qod-NR-PNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036.5" y="436"/>
+            <point key="canvasLocation" x="432" y="1004"/>
         </scene>
         <!--Puzzle List Table View Controller-->
         <scene sceneID="Pzl-7u-dna">
@@ -352,7 +352,253 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlS-zL-0df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-850.5" y="1059"/>
+            <point key="canvasLocation" x="-1581" y="1079"/>
+        </scene>
+        <!--Puzzle Question Select View Controller-->
+        <scene sceneID="BBg-CH-s7S">
+            <objects>
+                <viewController id="BVK-4u-ZrZ" customClass="PuzzleQuestionSelectViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="td0-bG-dul"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Qg-Lo-1At"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KqA-X3-WOK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivt-4Q-lfu">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="3U3-be-5EV"/>
+                                    <constraint firstAttribute="width" constant="250" id="Dxs-56-njq"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Dxs-56-njq"/>
+                                        <exclude reference="3U3-be-5EV"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Dxs-56-njq"/>
+                                        <include reference="3U3-be-5EV"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="NAg-bY-zkM" kind="embed" id="u1F-Mt-GMn"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ivt-4Q-lfu" firstAttribute="centerX" secondItem="KqA-X3-WOK" secondAttribute="centerX" id="2tq-cO-lNg"/>
+                            <constraint firstItem="ivt-4Q-lfu" firstAttribute="centerY" secondItem="KqA-X3-WOK" secondAttribute="centerY" id="TaU-Kf-by7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ivt-4Q-lfu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="2tq-cO-lNg"/>
+                                <exclude reference="TaU-Kf-by7"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ivt-4Q-lfu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="2tq-cO-lNg"/>
+                                <include reference="TaU-Kf-by7"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="puzzleQuestionList" destination="ivt-4Q-lfu" id="ZpV-Lu-oJW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CLV-6U-4Qi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="436"/>
+        </scene>
+        <!--Puzzle Question List Table View Controller-->
+        <scene sceneID="RD7-dP-Wga">
+            <objects>
+                <viewController storyboardIdentifier="PuzzleQuestionList" id="NAg-bY-zkM" customClass="PuzzleQuestionListTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UIt-gK-GJR"/>
+                        <viewControllerLayoutGuide type="bottom" id="lHn-kZ-SM1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qeV-I8-eUc">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0X6-GG-c5D">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PuzzleQuestionCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PuzzleGroupCell" id="hgE-ac-Ra8" customClass="PuzzleQustionListViewCell" customModule="PuzzleBubble" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hgE-ac-Ra8" id="RPT-56-WAo">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="394"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="0X6-GG-c5D"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="0X6-GG-c5D"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="0X6-GG-c5D" id="xVb-1b-KJW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LdQ-cc-Ydc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="1079"/>
+        </scene>
+        <!--Puzzle Sub Select View Controller-->
+        <scene sceneID="nVM-hQ-uG9">
+            <objects>
+                <viewController storyboardIdentifier="SubPuzzleView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="12j-eL-N0R" customClass="PuzzleSubSelectViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ErF-Bq-oR1"/>
+                        <viewControllerLayoutGuide type="bottom" id="xjm-HX-BDy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TMK-bT-a0U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="id0-s8-Ikc">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="E7p-ro-Okh"/>
+                                    <constraint firstAttribute="height" constant="400" id="L45-Xw-p72"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="E7p-ro-Okh"/>
+                                        <exclude reference="L45-Xw-p72"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="E7p-ro-Okh"/>
+                                        <include reference="L45-Xw-p72"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <segue destination="rxz-LA-dI2" kind="embed" id="PvN-cf-9gX"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="id0-s8-Ikc" firstAttribute="centerY" secondItem="TMK-bT-a0U" secondAttribute="centerY" id="8oy-bM-QBJ"/>
+                            <constraint firstItem="id0-s8-Ikc" firstAttribute="centerX" secondItem="TMK-bT-a0U" secondAttribute="centerX" id="l8M-hh-Of6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="id0-s8-Ikc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="l8M-hh-Of6"/>
+                                <exclude reference="8oy-bM-QBJ"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="id0-s8-Ikc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="l8M-hh-Of6"/>
+                                <include reference="8oy-bM-QBJ"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="subPuzzleGroupList" destination="id0-s8-Ikc" id="2AY-8r-ojC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Nn-kf-UoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-921" y="436"/>
+        </scene>
+        <!--Puzzle Sub List Table View Controller-->
+        <scene sceneID="hSA-hh-g9h">
+            <objects>
+                <viewController storyboardIdentifier="PuzzleSubList" id="rxz-LA-dI2" customClass="PuzzleSubListTableViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WwF-oK-euh"/>
+                        <viewControllerLayoutGuide type="bottom" id="XhU-zm-kxi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="avo-ky-W2J">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZXz-Vv-K4O">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PuzzleSubGroupCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PuzzleSubGroupCell" id="Ftt-Jf-T0d" customClass="PuzzleSubListViewCell" customModule="PuzzleBubble" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ftt-Jf-T0d" id="kmE-Zx-9Vj">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="394"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ZXz-Vv-K4O"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="ZXz-Vv-K4O"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ZXz-Vv-K4O" id="IfX-ts-LaY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ea-IH-hVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-921" y="1079"/>
         </scene>
     </scenes>
 </document>

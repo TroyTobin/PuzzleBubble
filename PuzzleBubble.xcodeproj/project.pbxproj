@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		533859AE1BD31C1100BF79D4 /* PuzzleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859AD1BD31C1100BF79D4 /* PuzzleListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		533859B01BD32A2200BF79D4 /* PuzzleListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859AF1BD32A2200BF79D4 /* PuzzleListViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		533859B21BD36A8400BF79D4 /* PuzzleQuestionSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859B11BD36A8400BF79D4 /* PuzzleQuestionSelectViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		533859B41BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859B31BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		533859B61BD36D8300BF79D4 /* PuzzleSubSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859B51BD36D8300BF79D4 /* PuzzleSubSelectViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		533859B81BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859B71BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		533859BA1BD370D800BF79D4 /* PuzzleSubListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859B91BD370D800BF79D4 /* PuzzleSubListViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		533859BC1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859BB1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA5FE1BC242A60029B18C /* AppDelegate.swift */; };
 		535FA6011BC242A60029B18C /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6001BC242A60029B18C /* PuzzleViewController.swift */; };
 		535FA6041BC242A60029B18C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535FA6021BC242A60029B18C /* Main.storyboard */; };
@@ -26,6 +32,12 @@
 /* Begin PBXFileReference section */
 		533859AD1BD31C1100BF79D4 /* PuzzleListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleListTableViewController.swift; sourceTree = "<group>"; };
 		533859AF1BD32A2200BF79D4 /* PuzzleListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleListViewCell.swift; sourceTree = "<group>"; };
+		533859B11BD36A8400BF79D4 /* PuzzleQuestionSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleQuestionSelectViewController.swift; sourceTree = "<group>"; };
+		533859B31BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleQuestionListTableViewController.swift; sourceTree = "<group>"; };
+		533859B51BD36D8300BF79D4 /* PuzzleSubSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSubSelectViewController.swift; sourceTree = "<group>"; };
+		533859B71BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSubListTableViewController.swift; sourceTree = "<group>"; };
+		533859B91BD370D800BF79D4 /* PuzzleSubListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSubListViewCell.swift; sourceTree = "<group>"; };
+		533859BB1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleQuestionListViewCell.swift; sourceTree = "<group>"; };
 		535FA5FB1BC242A60029B18C /* PuzzleBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuzzleBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		535FA5FE1BC242A60029B18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		535FA6001BC242A60029B18C /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -77,10 +89,16 @@
 				535FA6001BC242A60029B18C /* PuzzleViewController.swift */,
 				53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */,
 				533859AD1BD31C1100BF79D4 /* PuzzleListTableViewController.swift */,
-				535FA6021BC242A60029B18C /* Main.storyboard */,
+				533859AF1BD32A2200BF79D4 /* PuzzleListViewCell.swift */,
+				533859B51BD36D8300BF79D4 /* PuzzleSubSelectViewController.swift */,
+				533859B71BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift */,
+				533859B91BD370D800BF79D4 /* PuzzleSubListViewCell.swift */,
+				533859B11BD36A8400BF79D4 /* PuzzleQuestionSelectViewController.swift */,
+				533859B31BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift */,
+				533859BB1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift */,
 				535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */,
 				535FA6151BC2958E0029B18C /* GridViewCell.swift */,
-				533859AF1BD32A2200BF79D4 /* PuzzleListViewCell.swift */,
+				535FA6021BC242A60029B18C /* Main.storyboard */,
 				535FA6081BC242A60029B18C /* Assets.xcassets */,
 				535FA60A1BC242A60029B18C /* LaunchScreen.storyboard */,
 				535FA60D1BC242A60029B18C /* Info.plist */,
@@ -170,13 +188,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				535FA6011BC242A60029B18C /* PuzzleViewController.swift in Sources */,
+				533859BC1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift in Sources */,
+				533859BA1BD370D800BF79D4 /* PuzzleSubListViewCell.swift in Sources */,
 				53825C411BCA40F10056CDC3 /* PBNetLayer.swift in Sources */,
 				535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */,
+				533859B61BD36D8300BF79D4 /* PuzzleSubSelectViewController.swift in Sources */,
+				533859B41BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift in Sources */,
 				53825C3F1BCA3F620056CDC3 /* PBConstants.swift in Sources */,
 				535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */,
 				533859AE1BD31C1100BF79D4 /* PuzzleListTableViewController.swift in Sources */,
 				53825C431BCA4E370056CDC3 /* PuzzleSelectViewController.swift in Sources */,
+				533859B81BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift in Sources */,
 				533859B01BD32A2200BF79D4 /* PuzzleListViewCell.swift in Sources */,
+				533859B21BD36A8400BF79D4 /* PuzzleQuestionSelectViewController.swift in Sources */,
 				535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */,
 				53825C3D1BCA3F570056CDC3 /* PBClient.swift in Sources */,
 				535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */,

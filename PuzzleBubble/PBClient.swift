@@ -13,6 +13,9 @@ class PBClient: NSObject {
   
   var pbNet:PBNetLayer
   
+  static var puzzleGroup: String? = nil
+  static var subPuzzleGroup: Int? = nil
+  
   static let sharedInstance = PBClient()
   
   /// initialise and create a Puzzle Bubble Network Layer
@@ -33,6 +36,25 @@ class PBClient: NSObject {
       }
     }
   }
+  
+  
+  /// Get the list of sub puzzles that are currently available
+  func getPuzzleSubGroups(completionHandler: (results: AnyObject?, errorString: String?) -> Void) {
+    if let _ = PBClient.puzzleGroup {
+      
+      /// Retrieve the sub-puzzle group via the PB Network Layer
+      pbNet.doParseGetReq(PBClient.puzzleGroup!) { result, error in
+        if let inError = error {
+          completionHandler(results: nil, errorString: inError.localizedDescription)
+        } else {
+          completionHandler(results: result, errorString: nil)
+        }
+      }
+    } else {
+      completionHandler(results: nil, errorString: "Invalid sub puzzle \(PBClient.puzzleGroup)")
+    }
+  }
+
   
   /// Get the puzzle equation for the puzzle item in the puzzle group.
   func getPuzzleEquation(puzzleGroup:Int, puzzleItem:Int) -> String {
