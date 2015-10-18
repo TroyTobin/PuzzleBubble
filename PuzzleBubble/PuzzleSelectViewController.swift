@@ -13,17 +13,11 @@ class PuzzleSelectViewController: UIViewController {
 
   
   @IBOutlet weak var puzzleGroupsList: UIView!
+  var puzzleGroups: NSArray? = nil
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    /// Retrieve the list of puzzle groups available
-    PBClient.sharedInstance.getPuzzleGroups() { results, errorString in
-      
-      print("PuzzleGroup results = \(results)")
-      print("PuzzleGroup errorString = \(errorString)")
-      
-    }
+    // @TODO display other stuff in this view
   }
-  
 }

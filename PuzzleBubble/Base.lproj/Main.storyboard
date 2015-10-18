@@ -300,10 +300,10 @@
             </objects>
             <point key="canvasLocation" x="1036.5" y="436"/>
         </scene>
-        <!--View Controller-->
+        <!--Puzzle List Table View Controller-->
         <scene sceneID="Pzl-7u-dna">
             <objects>
-                <viewController id="p8q-cN-k5X" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PuzzleList" id="p8q-cN-k5X" customClass="PuzzleListTableViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="k0Y-ng-nBt"/>
                         <viewControllerLayoutGuide type="bottom" id="APL-j7-j83"/>
@@ -317,7 +317,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gke-nV-DQ8">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PuzzleGroupCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PuzzleGroupCell" id="gke-nV-DQ8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gke-nV-DQ8" id="WtT-6O-0EX">
@@ -329,7 +329,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="240" height="394"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="250" height="394"/>
                                 </variation>
                             </tableView>
                         </subviews>
@@ -346,6 +346,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="tn9-6z-1ML" id="Cjq-av-iQZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlS-zL-0df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

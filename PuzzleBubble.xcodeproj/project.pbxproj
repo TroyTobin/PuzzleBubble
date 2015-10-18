@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		533859AE1BD31C1100BF79D4 /* PuzzleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859AD1BD31C1100BF79D4 /* PuzzleListTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA5FE1BC242A60029B18C /* AppDelegate.swift */; };
 		535FA6011BC242A60029B18C /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6001BC242A60029B18C /* PuzzleViewController.swift */; };
 		535FA6041BC242A60029B18C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535FA6021BC242A60029B18C /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		533859AD1BD31C1100BF79D4 /* PuzzleListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleListTableViewController.swift; sourceTree = "<group>"; };
 		535FA5FB1BC242A60029B18C /* PuzzleBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuzzleBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		535FA5FE1BC242A60029B18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		535FA6001BC242A60029B18C /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				535FA5FE1BC242A60029B18C /* AppDelegate.swift */,
 				535FA6001BC242A60029B18C /* PuzzleViewController.swift */,
 				53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */,
+				533859AD1BD31C1100BF79D4 /* PuzzleListTableViewController.swift */,
 				535FA6021BC242A60029B18C /* Main.storyboard */,
 				535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */,
 				535FA6151BC2958E0029B18C /* GridViewCell.swift */,
@@ -168,6 +171,7 @@
 				535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */,
 				53825C3F1BCA3F620056CDC3 /* PBConstants.swift in Sources */,
 				535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */,
+				533859AE1BD31C1100BF79D4 /* PuzzleListTableViewController.swift in Sources */,
 				53825C431BCA4E370056CDC3 /* PuzzleSelectViewController.swift in Sources */,
 				535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */,
 				53825C3D1BCA3F570056CDC3 /* PBClient.swift in Sources */,
