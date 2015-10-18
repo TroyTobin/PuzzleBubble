@@ -82,6 +82,13 @@ class PuzzleSubListTableViewController: UIViewController, UITableViewDataSource,
   /// delegate function when cell selected.  Want to load student media url in web view
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
-
+    let puzzleQuestionController = self.storyboard!.instantiateViewControllerWithIdentifier("QuestionPuzzleView") as! PuzzleQuestionSelectViewController
+    
+    let puzzleGroup = self.subPuzzles![indexPath.row] as! NSDictionary
+    let level = puzzleGroup.valueForKey("level") as! Int
+    
+    puzzleQuestionController.puzzleLevel = level
+    
+    self.presentViewController(puzzleQuestionController, animated: true, completion: nil)
   }
 }

@@ -14,8 +14,16 @@ class PuzzleQuestionSelectViewController: UIViewController {
 
   @IBOutlet weak var puzzleQuestionList: UIView!
   
+  var puzzleLevel: Int? = nil
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // @TODO display other stuff in this view
+    /// Set the puzzleLevel in the PB Client so it can
+    /// be used for further queries
+    PBClient.puzzleLevel = puzzleLevel
+        
+    /// notify listeners they can use the data
+    NSNotificationCenter.defaultCenter().postNotificationName("reloadLevelQuestions", object: nil)
+
   }
 }
