@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qT7-8g-80h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Puzzle Select View Controller-->
@@ -39,18 +40,45 @@
                                     <segue destination="p8q-cN-k5X" kind="embed" id="oRs-ke-dgJ"/>
                                 </connections>
                             </containerView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZpS-BA-NFz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="eOS-bG-Bpk"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Puzzle Selector" id="8S7-gj-mSX"/>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eOS-bG-Bpk"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="eOS-bG-Bpk"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ZpS-BA-NFz" firstAttribute="leading" secondItem="IJ6-yG-HLW" secondAttribute="leadingMargin" constant="-20" id="4Br-fa-5xW"/>
                             <constraint firstItem="7uF-78-0hD" firstAttribute="centerX" secondItem="IJ6-yG-HLW" secondAttribute="centerX" id="5x7-bt-6Wo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ZpS-BA-NFz" secondAttribute="trailing" constant="-20" id="BFd-BC-ea5"/>
                             <constraint firstItem="7uF-78-0hD" firstAttribute="centerY" secondItem="IJ6-yG-HLW" secondAttribute="centerY" id="KYd-L1-jTU"/>
+                            <constraint firstItem="ZpS-BA-NFz" firstAttribute="top" secondItem="IJ6-yG-HLW" secondAttribute="topMargin" id="aJc-vG-Wup"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="7uF-78-0hD"/>
+                                <exclude reference="ZpS-BA-NFz"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4Br-fa-5xW"/>
+                                <exclude reference="BFd-BC-ea5"/>
+                                <exclude reference="aJc-vG-Wup"/>
                                 <exclude reference="5x7-bt-6Wo"/>
                                 <exclude reference="KYd-L1-jTU"/>
                             </mask>
@@ -58,20 +86,25 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="7uF-78-0hD"/>
+                                <include reference="ZpS-BA-NFz"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="4Br-fa-5xW"/>
+                                <include reference="BFd-BC-ea5"/>
+                                <include reference="aJc-vG-Wup"/>
                                 <include reference="5x7-bt-6Wo"/>
                                 <include reference="KYd-L1-jTU"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="SXQ-ma-1eh"/>
                     <connections>
                         <outlet property="puzzleGroupsList" destination="7uF-78-0hD" id="S17-Zn-gFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Eq-xU-idE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1581" y="436"/>
+            <point key="canvasLocation" x="-741" y="436"/>
         </scene>
         <!--Puzzle View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -226,7 +259,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="432" y="436"/>
+            <point key="canvasLocation" x="1248" y="436"/>
         </scene>
         <!--Grid Collection View Controller-->
         <scene sceneID="LdZ-3Y-uD1">
@@ -298,7 +331,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qod-NR-PNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="432" y="1004"/>
+            <point key="canvasLocation" x="1248" y="1004"/>
         </scene>
         <!--Puzzle List Table View Controller-->
         <scene sceneID="Pzl-7u-dna">
@@ -352,7 +385,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlS-zL-0df" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1581" y="1079"/>
+            <point key="canvasLocation" x="-741" y="1079"/>
         </scene>
         <!--Puzzle Question Select View Controller-->
         <scene sceneID="BBg-CH-s7S">
@@ -375,32 +408,65 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="Dxs-56-njq"/>
                                         <exclude reference="3U3-be-5EV"/>
+                                        <exclude reference="Dxs-56-njq"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="Dxs-56-njq"/>
                                         <include reference="3U3-be-5EV"/>
+                                        <include reference="Dxs-56-njq"/>
                                     </mask>
                                 </variation>
                                 <connections>
                                     <segue destination="NAg-bY-zkM" kind="embed" id="u1F-Mt-GMn"/>
                                 </connections>
                             </containerView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqB-FH-S5F">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="S2i-Fk-yxA"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Question Selector" id="Hp8-KF-StF">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JDI-Ta-SUO">
+                                            <connections>
+                                                <action selector="dismissView:" destination="BVK-4u-ZrZ" id="C4K-Ap-ool"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S2i-Fk-yxA"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="S2i-Fk-yxA"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ivt-4Q-lfu" firstAttribute="centerX" secondItem="KqA-X3-WOK" secondAttribute="centerX" id="2tq-cO-lNg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cqB-FH-S5F" secondAttribute="trailing" constant="-20" id="6dc-ZH-WGi"/>
+                            <constraint firstItem="cqB-FH-S5F" firstAttribute="leading" secondItem="KqA-X3-WOK" secondAttribute="leadingMargin" constant="-20" id="FgP-tL-16v"/>
                             <constraint firstItem="ivt-4Q-lfu" firstAttribute="centerY" secondItem="KqA-X3-WOK" secondAttribute="centerY" id="TaU-Kf-by7"/>
+                            <constraint firstItem="cqB-FH-S5F" firstAttribute="top" secondItem="KqA-X3-WOK" secondAttribute="topMargin" id="fr0-O8-wKJ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ivt-4Q-lfu"/>
+                                <exclude reference="cqB-FH-S5F"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="6dc-ZH-WGi"/>
+                                <exclude reference="FgP-tL-16v"/>
+                                <exclude reference="fr0-O8-wKJ"/>
                                 <exclude reference="2tq-cO-lNg"/>
                                 <exclude reference="TaU-Kf-by7"/>
                             </mask>
@@ -408,20 +474,25 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ivt-4Q-lfu"/>
+                                <include reference="cqB-FH-S5F"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="6dc-ZH-WGi"/>
+                                <include reference="FgP-tL-16v"/>
+                                <include reference="fr0-O8-wKJ"/>
                                 <include reference="2tq-cO-lNg"/>
                                 <include reference="TaU-Kf-by7"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="hAx-su-07b"/>
                     <connections>
                         <outlet property="puzzleQuestionList" destination="ivt-4Q-lfu" id="ZpV-Lu-oJW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CLV-6U-4Qi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-246" y="436"/>
+            <point key="canvasLocation" x="570" y="436"/>
         </scene>
         <!--Puzzle Question List Table View Controller-->
         <scene sceneID="RD7-dP-Wga">
@@ -475,7 +546,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdQ-cc-Ydc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-246" y="1079"/>
+            <point key="canvasLocation" x="570" y="1079"/>
         </scene>
         <!--Puzzle Sub Select View Controller-->
         <scene sceneID="nVM-hQ-uG9">
@@ -512,39 +583,77 @@
                                     <segue destination="rxz-LA-dI2" kind="embed" id="PvN-cf-9gX"/>
                                 </connections>
                             </containerView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jWS-5v-rGQ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Crf-y2-Xdh"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Level Selector" id="zLr-Jo-hfT">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="gVQ-4i-d6i">
+                                            <connections>
+                                                <action selector="dismissView:" destination="12j-eL-N0R" id="h1L-2G-ngj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Crf-y2-Xdh"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Crf-y2-Xdh"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="id0-s8-Ikc" firstAttribute="centerY" secondItem="TMK-bT-a0U" secondAttribute="centerY" id="8oy-bM-QBJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jWS-5v-rGQ" secondAttribute="trailing" constant="-20" id="bAd-WU-RXN"/>
                             <constraint firstItem="id0-s8-Ikc" firstAttribute="centerX" secondItem="TMK-bT-a0U" secondAttribute="centerX" id="l8M-hh-Of6"/>
+                            <constraint firstItem="jWS-5v-rGQ" firstAttribute="top" secondItem="TMK-bT-a0U" secondAttribute="topMargin" id="vWk-hM-Xil"/>
+                            <constraint firstItem="jWS-5v-rGQ" firstAttribute="leading" secondItem="TMK-bT-a0U" secondAttribute="leadingMargin" constant="-20" id="wfD-2Y-HR0"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="id0-s8-Ikc"/>
+                                <exclude reference="jWS-5v-rGQ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="l8M-hh-Of6"/>
+                                <exclude reference="bAd-WU-RXN"/>
+                                <exclude reference="vWk-hM-Xil"/>
+                                <exclude reference="wfD-2Y-HR0"/>
                                 <exclude reference="8oy-bM-QBJ"/>
+                                <exclude reference="l8M-hh-Of6"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="id0-s8-Ikc"/>
+                                <include reference="jWS-5v-rGQ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="l8M-hh-Of6"/>
+                                <include reference="bAd-WU-RXN"/>
+                                <include reference="vWk-hM-Xil"/>
+                                <include reference="wfD-2Y-HR0"/>
                                 <include reference="8oy-bM-QBJ"/>
+                                <include reference="l8M-hh-Of6"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="Pxe-ci-LJV"/>
                     <connections>
                         <outlet property="subPuzzleGroupList" destination="id0-s8-Ikc" id="2AY-8r-ojC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Nn-kf-UoX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-921" y="436"/>
+            <point key="canvasLocation" x="-81" y="436"/>
         </scene>
         <!--Puzzle Sub List Table View Controller-->
         <scene sceneID="hSA-hh-g9h">
@@ -598,7 +707,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ea-IH-hVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-921" y="1079"/>
+            <point key="canvasLocation" x="-81" y="1079"/>
         </scene>
     </scenes>
 </document>

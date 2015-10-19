@@ -26,4 +26,9 @@ class PuzzleQuestionSelectViewController: UIViewController {
     NSNotificationCenter.defaultCenter().postNotificationName("reloadLevelQuestions", object: nil)
 
   }
+  
+  /// Dismiss this view controller
+  @IBAction func dismissView(sender: AnyObject) {
+    self.dismissViewControllerAnimated(true, completion: nil)
+  }
 }
