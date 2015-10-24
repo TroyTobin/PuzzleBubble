@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qT7-8g-80h">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -109,7 +110,7 @@
         <!--Puzzle View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="PuzzleView" id="BYZ-38-t0r" customClass="PuzzleViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PuzzleView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="PuzzleViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -118,27 +119,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti4-wP-zAK">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="00m-Fg-GdV"/>
-                                    <constraint firstAttribute="width" constant="250" id="jsL-4q-9Py"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="00m-Fg-GdV"/>
-                                        <exclude reference="jsL-4q-9Py"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="75" y="175" width="250" height="250"/>
-                                    <mask key="constraints">
-                                        <include reference="00m-Fg-GdV"/>
-                                        <include reference="jsL-4q-9Py"/>
-                                    </mask>
-                                </variation>
-                            </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SLD-eM-ebF">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
@@ -190,7 +170,7 @@
                                 <animations/>
                                 <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="amH-L2-vkQ"/>
+                                    <constraint firstAttribute="height" constant="175" id="amH-L2-vkQ"/>
                                     <constraint firstAttribute="width" constant="250" id="pkL-c2-Ivm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -213,42 +193,40 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Kss-83-xvD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="09O-pd-dh4"/>
-                            <constraint firstItem="Kss-83-xvD" firstAttribute="top" secondItem="SLD-eM-ebF" secondAttribute="bottom" constant="40" id="EXw-2B-LpW"/>
-                            <constraint firstItem="SLD-eM-ebF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Xx0-Rp-X4q"/>
-                            <constraint firstItem="SLD-eM-ebF" firstAttribute="top" secondItem="883-Jd-IbD" secondAttribute="bottom" constant="40" id="Yrh-Tj-hz5"/>
+                            <constraint firstItem="Kss-83-xvD" firstAttribute="top" secondItem="SLD-eM-ebF" secondAttribute="bottom" constant="20" id="EXw-2B-LpW"/>
+                            <constraint firstItem="SLD-eM-ebF" firstAttribute="top" secondItem="883-Jd-IbD" secondAttribute="bottom" constant="20" id="Yrh-Tj-hz5"/>
                             <constraint firstItem="883-Jd-IbD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kDg-Ea-y41"/>
                             <constraint firstItem="SLD-eM-ebF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tca-uw-DIJ"/>
+                            <constraint firstItem="883-Jd-IbD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="uLY-bz-4HR"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Ti4-wP-zAK"/>
                                 <exclude reference="SLD-eM-ebF"/>
                                 <exclude reference="883-Jd-IbD"/>
                                 <exclude reference="Kss-83-xvD"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="kDg-Ea-y41"/>
-                                <exclude reference="09O-pd-dh4"/>
-                                <exclude reference="EXw-2B-LpW"/>
-                                <exclude reference="Xx0-Rp-X4q"/>
+                                <exclude reference="uLY-bz-4HR"/>
                                 <exclude reference="Yrh-Tj-hz5"/>
                                 <exclude reference="tca-uw-DIJ"/>
+                                <exclude reference="09O-pd-dh4"/>
+                                <exclude reference="EXw-2B-LpW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="Ti4-wP-zAK"/>
                                 <include reference="SLD-eM-ebF"/>
                                 <include reference="883-Jd-IbD"/>
                                 <include reference="Kss-83-xvD"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="kDg-Ea-y41"/>
-                                <include reference="09O-pd-dh4"/>
-                                <include reference="EXw-2B-LpW"/>
-                                <include reference="Xx0-Rp-X4q"/>
+                                <include reference="uLY-bz-4HR"/>
                                 <include reference="Yrh-Tj-hz5"/>
                                 <include reference="tca-uw-DIJ"/>
+                                <include reference="09O-pd-dh4"/>
+                                <include reference="EXw-2B-LpW"/>
                             </mask>
                         </variation>
                     </view>

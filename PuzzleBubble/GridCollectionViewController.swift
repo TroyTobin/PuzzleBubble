@@ -12,7 +12,36 @@ import CoreData
 let MAX_GRID_ELEMENTS = 9
 
 class GridCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    /// Set the notification handler for reloading the question
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadQuestion:", name: "reloadQuestion",object: nil)
+  }
+  
+  
+  /// Refresh the question
+  func reloadQuestion(notification: NSNotification) {
+    /// Retrieve the list of puzzle groups available
+    PBClient.sharedInstance.getPuzzleEquation() { results, errorString in
+      
+      if let inError = errorString {
+        /// Error getting the puzzle groups
+        print("Error \(inError)")
+      } else {
+        /// Okay so far - but is there a "user" JSON object?
+        let resultsContainer = results?.valueForKey("results") as? NSArray
+        
+        print ("results = \(resultsContainer)")
+        
+      }
+    }
+  }
+  
+  
+  
   /// Return the number of grid items to display
   ///
   /// :param: collectionView The collection view controller

@@ -16,6 +16,8 @@ class PBClient: NSObject {
   static var puzzleGroup: String? = nil
   static var puzzleLevel: Int? = nil
   static var questionId: String? = nil
+  static var question: NSArray? = nil
+  static var variables: NSArray? = nil
   
   static let sharedInstance = PBClient()
   
@@ -33,6 +35,7 @@ class PBClient: NSObject {
       if let inError = error {
         completionHandler(results: nil, errorString: inError.localizedDescription)
       } else {
+        print("puzzlegroups = \(result)")
         completionHandler(results: result, errorString: nil)
       }
     }
