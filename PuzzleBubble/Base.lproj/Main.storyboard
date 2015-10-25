@@ -188,14 +188,43 @@
                                     </mask>
                                 </variation>
                             </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKp-ze-qkI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0QQ-FA-uUQ"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Puzzle" id="1ZS-fi-586">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="6Fn-CV-Avg">
+                                            <connections>
+                                                <action selector="dismissView:" destination="BYZ-38-t0r" id="Lid-aE-ewA"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0QQ-FA-uUQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="0QQ-FA-uUQ"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Kss-83-xvD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="09O-pd-dh4"/>
+                            <constraint firstItem="NKp-ze-qkI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="9yZ-3M-sOu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NKp-ze-qkI" secondAttribute="trailing" constant="-20" id="DwA-0P-ijG"/>
                             <constraint firstItem="Kss-83-xvD" firstAttribute="top" secondItem="SLD-eM-ebF" secondAttribute="bottom" constant="20" id="EXw-2B-LpW"/>
                             <constraint firstItem="SLD-eM-ebF" firstAttribute="top" secondItem="883-Jd-IbD" secondAttribute="bottom" constant="20" id="Yrh-Tj-hz5"/>
                             <constraint firstItem="883-Jd-IbD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kDg-Ea-y41"/>
+                            <constraint firstItem="NKp-ze-qkI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="t40-TR-ROg"/>
                             <constraint firstItem="SLD-eM-ebF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tca-uw-DIJ"/>
                             <constraint firstItem="883-Jd-IbD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="uLY-bz-4HR"/>
                         </constraints>
@@ -204,14 +233,18 @@
                                 <exclude reference="SLD-eM-ebF"/>
                                 <exclude reference="883-Jd-IbD"/>
                                 <exclude reference="Kss-83-xvD"/>
+                                <exclude reference="NKp-ze-qkI"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9yZ-3M-sOu"/>
+                                <exclude reference="DwA-0P-ijG"/>
+                                <exclude reference="t40-TR-ROg"/>
                                 <exclude reference="kDg-Ea-y41"/>
                                 <exclude reference="uLY-bz-4HR"/>
-                                <exclude reference="09O-pd-dh4"/>
-                                <exclude reference="EXw-2B-LpW"/>
                                 <exclude reference="Yrh-Tj-hz5"/>
                                 <exclude reference="tca-uw-DIJ"/>
+                                <exclude reference="09O-pd-dh4"/>
+                                <exclude reference="EXw-2B-LpW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -219,14 +252,18 @@
                                 <include reference="SLD-eM-ebF"/>
                                 <include reference="883-Jd-IbD"/>
                                 <include reference="Kss-83-xvD"/>
+                                <include reference="NKp-ze-qkI"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="9yZ-3M-sOu"/>
+                                <include reference="DwA-0P-ijG"/>
+                                <include reference="t40-TR-ROg"/>
                                 <include reference="kDg-Ea-y41"/>
                                 <include reference="uLY-bz-4HR"/>
-                                <include reference="09O-pd-dh4"/>
-                                <include reference="EXw-2B-LpW"/>
                                 <include reference="Yrh-Tj-hz5"/>
                                 <include reference="tca-uw-DIJ"/>
+                                <include reference="09O-pd-dh4"/>
+                                <include reference="EXw-2B-LpW"/>
                             </mask>
                         </variation>
                     </view>

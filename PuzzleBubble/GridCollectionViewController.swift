@@ -24,6 +24,7 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   
   func reloadAnswers(notification: NSNotification) {
     PBClient.answersOrder = []
+    PBClient.selectedAnswers = []
     dispatch_async(dispatch_get_main_queue(), {
       self.collectionView.reloadData()
     })
@@ -57,6 +58,25 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     }
     PBClient.answersOrder!.insertObject(randIndex, atIndex: 0)
     gridCell.gridLabel.text = "\(PBClient.answers![randIndex])"
+    if ((PBClient.selectedAnswers?.containsObject(indexPath.row))! == true) {
+      print("setting background to red")
+      gridCell.gridLabel.backgroundColor = UIColor.redColor()
+    } else {
+      print ("setting background to black")
+      gridCell.gridLabel.backgroundColor = UIColor.blackColor()
+    }
     return gridCell
+  }
+  
+  /// View the selected meme in the MemeViewController
+  ///
+  /// :param: collectionView The collection view controller
+  /// :param: indexPath The index of the item selected
+  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath) {
+    print("selected \(indexPath.row)")
+    let cell = collectionView.cellForItemAtIndexPath(indexPath) as! GridViewCell
+    
+    cell.gridLabel.backgroundColor = UIColor.redColor()
+    PBClient.selectedAnswers!.insertObject(indexPath.row, atIndex: 0)
   }
 }
