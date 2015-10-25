@@ -43,33 +43,53 @@ class PuzzleViewController: UIViewController {
       } else {
         /// Okay so far - but is there a "user" JSON object?
         let resultsContainer = results?.valueForKey("results") as? NSArray
+        var question:NSArray? = nil
+        var variables:NSArray? = nil
+        var questionString:String = ""
         
         print ("results puzzle view = \(resultsContainer)")
-        if let question = resultsContainer?[0].valueForKey("question") as? NSArray {
-          var questionString = ""
+        
+        // Retrieve the puzzle question
+        if let _question = resultsContainer?[0].valueForKey("question") as? NSArray {
+          question = _question
           var elementIdx = 0
-          while elementIdx < (question.count - 1) {
-            questionString += "\(question[elementIdx]) + "
+          
+          // Create the string representation of the questions
+          // and set the UI text label with the contents
+          while elementIdx < (question!.count - 1) {
+            questionString += "\(question![elementIdx]) \(PBClient.getOperator()!) "
             elementIdx++
           }
-          questionString += "\(question[elementIdx])"
+          questionString += "\(question![elementIdx])"
           print ("questionString = \(questionString)")
           dispatch_async(dispatch_get_main_queue(), {
             self.PuzzleQuestion.text = questionString
           })
         }
-        if let variables = resultsContainer?[0].valueForKey("variables") as? NSArray {
+        
+        // Retrieve the variable list
+        if let _variables = resultsContainer?[0].valueForKey("variables") as? NSArray {
+          variables = _variables
           print ("variables = \(variables)")
           var variablesString = ""
           var elementIdx = 0
-          while elementIdx < (variables.count) {
-            variablesString += "? = \(variables[elementIdx])\n"
+          
+          // Create the string representation of the variable list
+          // and set the UI text view with the contents
+          while elementIdx < (variables!.count) {
+            variablesString += "? = \(variables![elementIdx])\n"
             elementIdx++
           }
           dispatch_async(dispatch_get_main_queue(), {
             self.PuzzleVariables.text = variablesString
           })
         }
+        
+        // calculate all of the answers to the questions
+        PBClient.answers = PBClient.sharedInstance.getPuzzleAnswers(question, variables: variables)
+    
+        // Notify the grid view to set the answers in the cells
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadAnswers", object: nil)
       }
     }
   }

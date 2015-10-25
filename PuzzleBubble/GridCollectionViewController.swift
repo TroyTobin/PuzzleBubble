@@ -13,41 +13,31 @@ let MAX_GRID_ELEMENTS = 9
 
 class GridCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   
+  @IBOutlet var collectionView: UICollectionView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     /// Set the notification handler for reloading the question
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadQuestion:", name: "reloadQuestion",object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadAnswers:", name: "reloadAnswers",object: nil)
   }
   
-  
-  /// Refresh the question
-  func reloadQuestion(notification: NSNotification) {
-    /// Retrieve the list of puzzle groups available
-    PBClient.sharedInstance.getPuzzleEquation() { results, errorString in
-      
-      if let inError = errorString {
-        /// Error getting the puzzle groups
-        print("Error \(inError)")
-      } else {
-        /// Okay so far - but is there a "user" JSON object?
-        let resultsContainer = results?.valueForKey("results") as? NSArray
-        
-        print ("results = \(resultsContainer)")
-        
-      }
-    }
+  func reloadAnswers(notification: NSNotification) {
+    PBClient.answersOrder = []
+    dispatch_async(dispatch_get_main_queue(), {
+      self.collectionView.reloadData()
+    })
   }
-  
-  
   
   /// Return the number of grid items to display
   ///
   /// :param: collectionView The collection view controller
   /// :param: section The index into the collection view
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return MAX_GRID_ELEMENTS
+    if PBClient.answers == nil {
+      return 0
+    }
+    return (PBClient.answers?.count)!
   }
   
   /// Return the grid item for the desired index
@@ -60,7 +50,13 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     gridCell.layer.cornerRadius = 10
     
     // @TODO Replace this with useful data
-    gridCell.gridLabel.text = "\(indexPath.item + 1)"
+    // Get a random index into the answers array
+    var randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
+    while ((PBClient.answersOrder?.containsObject(randIndex))! == true) {
+      randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
+    }
+    PBClient.answersOrder!.insertObject(randIndex, atIndex: 0)
+    gridCell.gridLabel.text = "\(PBClient.answers![randIndex])"
     return gridCell
   }
 }

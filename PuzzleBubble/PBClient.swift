@@ -18,6 +18,8 @@ class PBClient: NSObject {
   static var questionId: String? = nil
   static var question: NSArray? = nil
   static var variables: NSArray? = nil
+  static var answers: NSArray? = nil
+  static var answersOrder: NSMutableArray? = nil
   
   static let sharedInstance = PBClient()
   
@@ -25,6 +27,38 @@ class PBClient: NSObject {
   override init() {
     pbNet = PBNetLayer()
     super.init()
+  }
+  
+  class func getOperator() -> String? {
+    if PBClient.puzzleGroup == nil {
+      return nil
+    } else if PBClient.puzzleGroup == "Addition" {
+      return  "+"
+    } else if PBClient.puzzleGroup == "Subtraction" {
+      return "-"
+    } else if PBClient.puzzleGroup == "Multiplication" {
+      return "x"
+    } else if PBClient.puzzleGroup == "Division" {
+      return "/"
+    } else {
+      return nil
+    }
+  }
+  
+  class func doOperator(valueA: Int, valueB: Int) -> Int? {
+    if PBClient.puzzleGroup == nil {
+      return nil
+    } else if PBClient.puzzleGroup == "Addition" {
+      return  valueA + valueB
+    } else if PBClient.puzzleGroup == "Subtraction" {
+      return valueA - valueB
+    } else if PBClient.puzzleGroup == "Multiplication" {
+      return valueA * valueB
+    } else if PBClient.puzzleGroup == "Division" {
+      return valueA / valueB
+    } else {
+      return nil
+    }
   }
   
   /// Get the list of puzzle groups that are currently available
@@ -92,6 +126,26 @@ class PBClient: NSObject {
     } else {
       completionHandler(results: nil, errorString: "Invalid puzzle question \(PBClient.puzzleGroup)")
     }
+  }
+  
+  func getPuzzleAnswers(question: NSArray?, variables: NSArray?) -> NSArray {
+    let answers : NSMutableArray = []
+    if question != nil && variables != nil {
+      for variable in variables! {
+        print ("variable = \(variable)")
+        var answer:Int = 0
+        for operand in question! {
+          print ("operand = \(operand)")
+          if operand as! String == "?" {
+            answer = PBClient.doOperator(answer, valueB: Int(variable as! Int))!
+          } else {
+            answer = PBClient.doOperator(answer, valueB: Int(operand.integerValue as Int))!
+          }
+        }
+        answers.insertObject(answer, atIndex: answers.count)
+      }
+    }
+    return answers as NSArray
   }
 }
 
