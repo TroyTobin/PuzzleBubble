@@ -25,6 +25,7 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   func reloadAnswers(notification: NSNotification) {
     PBClient.answersOrder = []
     PBClient.selectedAnswers = []
+    PBClient.selectedAnswersOrder = []
     dispatch_async(dispatch_get_main_queue(), {
       self.collectionView.reloadData()
     })
@@ -49,18 +50,38 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     
     let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridViewCell
     gridCell.layer.cornerRadius = 10
-    
-    // @TODO Replace this with useful data
-    // Get a random index into the answers array
-    var randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
-    while ((PBClient.answersOrder?.containsObject(randIndex))! == true) {
-      randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
+    print ("PBClient.selectedAnswers?.count \(PBClient.selectedAnswers?.count)")
+    print ("PBClient.answers?.count \(PBClient.answers?.count)")
+    print ("=== \(PBClient.answers?.count != PBClient.selectedAnswers?.count)")
+    if (PBClient.selectedAnswers?.count != PBClient.answers?.count) {
+      // @TODO Replace this with useful data
+      // Get a random index into the answers array
+      print ("re-order")
+      var randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
+      while ((PBClient.answersOrder?.containsObject(randIndex))! == true) {
+        randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
+      }
+      PBClient.answersOrder!.insertObject(randIndex, atIndex: (PBClient.answersOrder?.count)!)
+      gridCell.gridLabel.text = "\(PBClient.answers![randIndex])"
     }
-    PBClient.answersOrder!.insertObject(randIndex, atIndex: 0)
-    gridCell.gridLabel.text = "\(PBClient.answers![randIndex])"
-    if ((PBClient.selectedAnswers?.containsObject(indexPath.row))! == true) {
-      print("setting background to red")
-      gridCell.gridLabel.backgroundColor = UIColor.redColor()
+    else {
+      gridCell.gridLabel.text = "\(PBClient.answers![PBClient.answersOrder![indexPath.row] as! Int)"
+    }
+    if ((PBClient.selectedAnswersOrder?.containsObject(indexPath.row))! == true) {
+      print("setting background")
+      if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
+        print("Red or green")
+        if (PBClient.correct) {
+          print ("Green")
+          gridCell.gridLabel.backgroundColor = UIColor.greenColor()
+        } else {
+          print ("Red")
+          gridCell.gridLabel.backgroundColor = UIColor.redColor()
+        }
+      } else {
+        print ("Blue")
+        gridCell.gridLabel.backgroundColor = UIColor.blueColor()
+      }
     } else {
       print ("setting background to black")
       gridCell.gridLabel.backgroundColor = UIColor.blackColor()
@@ -76,7 +97,20 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     print("selected \(indexPath.row)")
     let cell = collectionView.cellForItemAtIndexPath(indexPath) as! GridViewCell
     
-    cell.gridLabel.backgroundColor = UIColor.redColor()
-    PBClient.selectedAnswers!.insertObject(indexPath.row, atIndex: 0)
+    cell.gridLabel.backgroundColor = UIColor.blueColor()
+    PBClient.selectedAnswersOrder!.insertObject(indexPath.row, atIndex: 0)
+    PBClient.selectedAnswers!.insertObject(Int(cell.gridLabel.text!)!, atIndex: (PBClient.selectedAnswers?.count)!)
+    print("selectedAnswers count = \(PBClient.selectedAnswers?.count)")
+    print("answers count = \(PBClient.answers?.count)")
+    // If all tiles have been selected check the results order for conformance
+    if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
+      print ("check answers")
+      PBClient.correct = PBClient.sharedInstance.checkPuzzleAnswers()
+      print ("Correct? = \(PBClient.correct)")
+      dispatch_async(dispatch_get_main_queue(), {
+        collectionView.reloadData()
+      })
+      
+    }
   }
 }

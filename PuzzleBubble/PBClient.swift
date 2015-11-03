@@ -21,6 +21,8 @@ class PBClient: NSObject {
   static var answers: NSArray? = nil
   static var answersOrder: NSMutableArray? = nil
   static var selectedAnswers: NSMutableArray? = nil
+  static var selectedAnswersOrder: NSMutableArray? = nil
+  static var correct: Bool = false
   
   static let sharedInstance = PBClient()
   
@@ -147,6 +149,18 @@ class PBClient: NSObject {
       }
     }
     return answers as NSArray
+  }
+  
+  func checkPuzzleAnswers() -> Bool {
+    var i = 0;
+    var res = true
+    for (i = 0; i < PBClient.answers!.count; i++) {
+      if Int(PBClient.answers![i] as! NSNumber) != Int(PBClient.selectedAnswers![i] as! NSNumber) {
+        res = false
+        break
+      }
+    }
+    return res
   }
 }
 
