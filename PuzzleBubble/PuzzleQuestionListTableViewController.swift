@@ -92,6 +92,7 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     print ("Quesitons = \(self.puzzleQuestions)")
     puzzleController.questionId = self.puzzleQuestions![indexPath.row] as! String
     
+    puzzleController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     self.presentViewController(puzzleController, animated: true, completion: nil)
   }
 }

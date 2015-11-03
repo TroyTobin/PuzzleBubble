@@ -84,6 +84,7 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     let title = puzzleGroup.valueForKey("title") as! String
     
     puzzleController.puzzleGroup = title
+    puzzleController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     
     self.presentViewController(puzzleController, animated: true, completion: nil)
   }

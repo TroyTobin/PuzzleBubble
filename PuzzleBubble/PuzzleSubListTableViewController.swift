@@ -88,7 +88,7 @@ class PuzzleSubListTableViewController: UIViewController, UITableViewDataSource,
     let level = puzzleGroup.valueForKey("level") as! Int
     
     puzzleQuestionController.puzzleLevel = level
-    
+    puzzleQuestionController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     self.presentViewController(puzzleQuestionController, animated: true, completion: nil)
   }
 }
