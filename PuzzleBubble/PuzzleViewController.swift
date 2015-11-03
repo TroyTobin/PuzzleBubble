@@ -12,8 +12,11 @@ class PuzzleViewController: UIViewController {
 
   @IBOutlet weak var PuzzleQuestion: UILabel!
   @IBOutlet weak var PuzzleVariables: UITextView!
+  @IBOutlet weak var timerLabel: UILabel!
   
   var questionId:String? = nil
+  var timer: NSTimer? = nil
+  var startDate: Double? = nil
   
   
   override func viewDidLoad() {
@@ -92,6 +95,18 @@ class PuzzleViewController: UIViewController {
         NSNotificationCenter.defaultCenter().postNotificationName("reloadAnswers", object: nil)
       }
     }
+    self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true);
+    self.startDate = 60.0;
+  }
+
+  func stopTimer() {
+    self.timer!.invalidate();
+  }
+  
+  func updateTimer() {
+    // Create date from the elapsed time
+    self.startDate! -= 0.1
+    self.timerLabel?.text = NSString(format: "%.1f", self.startDate!) as String
   }
   
   @IBAction func resetQuestion(sender: AnyObject) {
