@@ -201,6 +201,11 @@
                                                 <action selector="dismissView:" destination="BYZ-38-t0r" id="Lid-aE-ewA"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="y5R-rq-vCE">
+                                            <connections>
+                                                <action selector="resetQuestion:" destination="BYZ-38-t0r" id="aqU-qs-hSk"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                                 <variation key="default">
@@ -236,15 +241,15 @@
                                 <exclude reference="NKp-ze-qkI"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="kDg-Ea-y41"/>
+                                <exclude reference="uLY-bz-4HR"/>
                                 <exclude reference="9yZ-3M-sOu"/>
                                 <exclude reference="DwA-0P-ijG"/>
                                 <exclude reference="t40-TR-ROg"/>
-                                <exclude reference="kDg-Ea-y41"/>
-                                <exclude reference="uLY-bz-4HR"/>
-                                <exclude reference="Yrh-Tj-hz5"/>
-                                <exclude reference="tca-uw-DIJ"/>
                                 <exclude reference="09O-pd-dh4"/>
                                 <exclude reference="EXw-2B-LpW"/>
+                                <exclude reference="Yrh-Tj-hz5"/>
+                                <exclude reference="tca-uw-DIJ"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -255,15 +260,15 @@
                                 <include reference="NKp-ze-qkI"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="kDg-Ea-y41"/>
+                                <include reference="uLY-bz-4HR"/>
                                 <include reference="9yZ-3M-sOu"/>
                                 <include reference="DwA-0P-ijG"/>
                                 <include reference="t40-TR-ROg"/>
-                                <include reference="kDg-Ea-y41"/>
-                                <include reference="uLY-bz-4HR"/>
-                                <include reference="Yrh-Tj-hz5"/>
-                                <include reference="tca-uw-DIJ"/>
                                 <include reference="09O-pd-dh4"/>
                                 <include reference="EXw-2B-LpW"/>
+                                <include reference="Yrh-Tj-hz5"/>
+                                <include reference="tca-uw-DIJ"/>
                             </mask>
                         </variation>
                     </view>
