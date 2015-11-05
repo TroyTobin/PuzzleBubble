@@ -64,18 +64,23 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     else {
       gridCell.gridLabel.text = "\(PBClient.answers![PBClient.answersOrder![indexPath.row] as! Int)"
     }
+    gridCell.gridLabel.textColor = UIColor.whiteColor()
+    gridCell.layer.borderWidth = 2
+    gridCell.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    
     if ((PBClient.selectedAnswersOrder?.containsObject(indexPath.row))! == true) {
       if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
         if (PBClient.correct) {
-          gridCell.gridLabel.backgroundColor = UIColor.greenColor()
+          gridCell.gridLabel.backgroundColor = UIColor(red:0.30, green:0.95, blue:0.40, alpha:1.0)
         } else {
-          gridCell.gridLabel.backgroundColor = UIColor.redColor()
+          gridCell.gridLabel.backgroundColor = UIColor(red:0.95, green:0.30, blue:0.15, alpha:1.0)
         }
       } else {
-        gridCell.gridLabel.backgroundColor = UIColor.blueColor()
+        gridCell.gridLabel.backgroundColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
       }
     } else {
-      gridCell.gridLabel.backgroundColor = UIColor.blackColor()
+      gridCell.gridLabel.backgroundColor = UIColor.whiteColor()
+      gridCell.gridLabel.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
     }
     return gridCell
   }
@@ -87,7 +92,9 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath) {
     let cell = collectionView.cellForItemAtIndexPath(indexPath) as! GridViewCell
     
-    cell.gridLabel.backgroundColor = UIColor.blueColor()
+    cell.gridLabel.textColor = UIColor.whiteColor()
+    cell.gridLabel.backgroundColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
+    
     PBClient.selectedAnswersOrder!.insertObject(indexPath.row, atIndex: 0)
     PBClient.selectedAnswers!.insertObject(Int(cell.gridLabel.text!)!, atIndex: (PBClient.selectedAnswers?.count)!)
     // If all tiles have been selected check the results order for conformance
