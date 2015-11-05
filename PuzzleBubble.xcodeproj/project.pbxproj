@@ -28,6 +28,8 @@
 		53825C411BCA40F10056CDC3 /* PBNetLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C401BCA40F10056CDC3 /* PBNetLayer.swift */; };
 		53825C431BCA4E370056CDC3 /* PuzzleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */; };
 		53C756421BEB81AC006D875C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C756411BEB81AC006D875C /* CoreDataManager.swift */; };
+		53C756451BEB8867006D875C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C756441BEB8867006D875C /* User.swift */; };
+		53C756471BEB8872006D875C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C756461BEB8872006D875C /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		53825C401BCA40F10056CDC3 /* PBNetLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBNetLayer.swift; sourceTree = "<group>"; };
 		53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSelectViewController.swift; sourceTree = "<group>"; };
 		53C756411BEB81AC006D875C /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		53C756441BEB8867006D875C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		53C756461BEB8872006D875C /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		535FA5FD1BC242A60029B18C /* PuzzleBubble */ = {
 			isa = PBXGroup;
 			children = (
+				53C756431BEB8858006D875C /* model */,
 				53825C3B1BCA3F3C0056CDC3 /* Client */,
 				535FA5FE1BC242A60029B18C /* AppDelegate.swift */,
 				535FA6001BC242A60029B18C /* PuzzleViewController.swift */,
@@ -118,6 +123,15 @@
 				53825C401BCA40F10056CDC3 /* PBNetLayer.swift */,
 			);
 			name = Client;
+			sourceTree = "<group>";
+		};
+		53C756431BEB8858006D875C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				53C756441BEB8867006D875C /* User.swift */,
+				53C756461BEB8872006D875C /* Question.swift */,
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +209,7 @@
 				533859BA1BD370D800BF79D4 /* PuzzleSubListViewCell.swift in Sources */,
 				53825C411BCA40F10056CDC3 /* PBNetLayer.swift in Sources */,
 				535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */,
+				53C756471BEB8872006D875C /* Question.swift in Sources */,
 				533859B61BD36D8300BF79D4 /* PuzzleSubSelectViewController.swift in Sources */,
 				53C756421BEB81AC006D875C /* CoreDataManager.swift in Sources */,
 				533859B41BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift in Sources */,
@@ -208,6 +223,7 @@
 				535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */,
 				53825C3D1BCA3F570056CDC3 /* PBClient.swift in Sources */,
 				535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */,
+				53C756451BEB8867006D875C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
