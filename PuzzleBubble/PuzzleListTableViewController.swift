@@ -20,6 +20,10 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     /// we are a delegate to the table view
     self.tableView.dataSource = self
     self.tableView.delegate = self
+    self.tableView.layer.cornerRadius = 10
+    self.tableView.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    self.tableView.layer.borderWidth = 2.0;
+    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
     
     /// Retrieve the list of puzzle groups available
     PBClient.sharedInstance.getPuzzleGroups() { results, errorString in

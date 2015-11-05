@@ -10,9 +10,9 @@ import UIKit
 
 class PuzzleViewController: UIViewController {
 
-  @IBOutlet weak var PuzzleQuestion: UILabel!
+  @IBOutlet weak var PuzzleQuestion: UITextView!
   @IBOutlet weak var PuzzleVariables: UITextView!
-  @IBOutlet weak var timerLabel: UILabel!
+  @IBOutlet weak var timerLabel: UITextView!
   
   var questionId:String? = nil
   var timer: NSTimer? = nil
@@ -25,6 +25,16 @@ class PuzzleViewController: UIViewController {
     /// Set the puzzle question in the PB Client so it can
     /// be used for further queries
     PBClient.questionId = questionId
+    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    self.PuzzleQuestion.layer.cornerRadius = 10
+    self.PuzzleQuestion.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    self.PuzzleQuestion.layer.borderWidth = 2.0;
+    self.PuzzleVariables.layer.cornerRadius = 10
+    self.PuzzleVariables.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    self.PuzzleVariables.layer.borderWidth = 2.0;
+    self.timerLabel.layer.cornerRadius = 10
+    self.timerLabel.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    self.timerLabel.layer.borderWidth = 2.0;
     
     print ("Set the question to \(PBClient.questionId)")
     /// Set the notification handler for reloading the question

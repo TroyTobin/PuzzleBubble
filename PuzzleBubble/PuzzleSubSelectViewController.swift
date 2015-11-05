@@ -20,6 +20,7 @@ class PuzzleSubSelectViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
     
     /// Set the puzzle group in the PB Client so it can 
     /// be used for further queries
