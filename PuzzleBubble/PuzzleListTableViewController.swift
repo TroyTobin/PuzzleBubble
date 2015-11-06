@@ -14,8 +14,8 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
   @IBOutlet weak var tableView: UITableView!
   var puzzles: NSArray? = nil
   
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
     /// we are a delegate to the table view
     self.tableView.dataSource = self
