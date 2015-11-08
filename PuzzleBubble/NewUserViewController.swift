@@ -73,12 +73,22 @@ class NewUserViewController: UIViewController {
           User.Keys.Name : _name!,
           User.Keys.Gender : _gender,
           User.Keys.Score: 0,
+          User.Keys.IsCurrent: true,
         ]
     
+        let users = PBClient.sharedInstance.retrieveUsers()
+        for user in users {
+          let _user = user as! User
+          _user.isCurrent = false
+        }
+        
         /// Now we create a new Person, using the shared Context
         let newUser = User(dictionary: dictionary, context: sharedContext)
         PBClient.currentUser = newUser
         CoreDataStackManager.sharedInstance().saveContext()
+        
+        
+        
         self.dismissViewControllerAnimated(true, completion: nil)
       }
     }

@@ -22,9 +22,6 @@ class UserDetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.view.layer.cornerRadius = 10
-  }
-  
-  override func viewWillAppear(animated: Bool) {
     
     self.view.backgroundColor = UIColor.whiteColor()
     let textFontAttributes = [
@@ -34,12 +31,17 @@ class UserDetailsViewController: UIViewController {
       NSStrokeWidthAttributeName: -7
     ]
     
-    let scoreLabel = NSAttributedString(string: "Score", attributes: textFontAttributes)
-    userScoreLabel.attributedText = scoreLabel
     let levelLabel = NSAttributedString(string: "Level", attributes: textFontAttributes)
     userLevelLabel.attributedText = levelLabel
     let completionLabel = NSAttributedString(string: "Completion", attributes: textFontAttributes)
     userCompletionLabel.attributedText = completionLabel
+    let scoreLabel = NSAttributedString(string: "Score", attributes: textFontAttributes)
+    userScoreLabel.attributedText = scoreLabel
+
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    
     
     if let currentUser = PBClient.currentUser {
       let nameFontAttributes = [

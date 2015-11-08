@@ -7,34 +7,12 @@
 //
 
 import UIKit
-import CoreData
 
-class UserViewController: UIViewController, NSFetchedResultsControllerDelegate {
+class UserViewController: UIViewController {
 
   @IBOutlet weak var userView: UIView!
   @IBOutlet weak var playButton: UIButton!
   @IBOutlet weak var newUser: UIButton!
-
-  /// Managed object context
-  var sharedContext: NSManagedObjectContext {
-    return CoreDataStackManager.sharedInstance().managedObjectContext!
-  }
-  
-  /// Fetch controller to retrieve managed obejcts
-  lazy var fetchedResultsController: NSFetchedResultsController = {
-    
-    let fetchRequest = NSFetchRequest(entityName: "User")
-    
-    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-    
-    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-      managedObjectContext: self.sharedContext,
-      sectionNameKeyPath: nil,
-      cacheName: nil)
-    
-    return fetchedResultsController
-    
-  }()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -59,23 +37,15 @@ class UserViewController: UIViewController, NSFetchedResultsControllerDelegate {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
-    // Retrieve the users that are stored
-    
-    /// This class is the FetchedResultsController delegate
-    fetchedResultsController.delegate = self
-    do {
-      try self.fetchedResultsController.performFetch()
-        
-      let users = fetchedResultsController.fetchedObjects! as NSArray
-      for user in users {
-        let _user = user as! User
-        print("user name = \(_user.name)")
-        print("user gender = \(_user.gender)")
+    let users = PBClient.sharedInstance.retrieveUsers()
+    for user in users {
+      let _user = user as! User
+      if _user.isCurrent {
+        PBClient.currentUser = _user
+        break
       }
-    } catch {
-      
     }
+    
     if let _ = PBClient.currentUser {
       self.userView.hidden = false
       self.playButton.hidden = false

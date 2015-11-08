@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
 /// This class represents the Puzzle Bubble API to the View controllers
-class PBClient: NSObject {
+class PBClient: NSObject, NSFetchedResultsControllerDelegate {
   
   var pbNet:PBNetLayer
   
@@ -27,10 +28,33 @@ class PBClient: NSObject {
   
   static let sharedInstance = PBClient()
   
+  /// Managed object context
+  var sharedContext: NSManagedObjectContext {
+    return CoreDataStackManager.sharedInstance().managedObjectContext!
+  }
+  
+  /// Fetch controller to retrieve managed obejcts
+  lazy var fetchedResultsController: NSFetchedResultsController = {
+    
+    let fetchRequest = NSFetchRequest(entityName: "User")
+    
+    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+    
+    let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+      managedObjectContext: self.sharedContext,
+      sectionNameKeyPath: nil,
+      cacheName: nil)
+    
+    return fetchedResultsController
+    
+  }()
+  
   /// initialise and create a Puzzle Bubble Network Layer
   override init() {
     pbNet = PBNetLayer()
     super.init()
+    /// This class is the FetchedResultsController delegate
+    fetchedResultsController.delegate = self
   }
   
   class func getOperator() -> String? {
@@ -78,7 +102,6 @@ class PBClient: NSObject {
       }
     }
   }
-  
   
   /// Get the list of sub puzzles that are currently available
   func getPuzzleSubGroups(completionHandler: (results: AnyObject?, errorString: String?) -> Void) {
@@ -162,6 +185,20 @@ class PBClient: NSObject {
       }
     }
     return res
+  }
+  
+  
+  func retrieveUsers() -> NSArray {
+  
+    // Retrieve the users that are stored
+    do {
+      try self.fetchedResultsController.performFetch()
+  
+      let users = fetchedResultsController.fetchedObjects! as NSArray
+      return users
+    } catch {
+      return []
+    }
   }
 }
 
