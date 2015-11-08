@@ -13,12 +13,14 @@ import CoreData
 class User : NSManagedObject {
   
   struct Keys {
-    static let Name  = "Name"
+    static let Name   = "Name"
     static let Score  = "Score"
+    static let Gender = "Gender"
   }
   
   ///Set the User attributes to Core data attributes
   @NSManaged var name: String
+  @NSManaged var gender: String
   @NSManaged var score: NSNumber
   @NSManaged var completed: [Question]
   
@@ -39,6 +41,7 @@ class User : NSManagedObject {
     
     // Set the User attributes
     name = dictionary[Keys.Name] as! String
+    gender = dictionary[Keys.Gender] as! String
     score = dictionary[Keys.Score] as! NSNumber
   }
 }

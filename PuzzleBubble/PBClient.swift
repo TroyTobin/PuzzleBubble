@@ -23,6 +23,7 @@ class PBClient: NSObject {
   static var selectedAnswers: NSMutableArray? = nil
   static var selectedAnswersOrder: NSMutableArray? = nil
   static var correct: Bool = false
+  static var currentUser: User? = nil
   
   static let sharedInstance = PBClient()
   

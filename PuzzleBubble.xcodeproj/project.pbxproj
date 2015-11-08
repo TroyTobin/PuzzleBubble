@@ -29,6 +29,7 @@
 		53825C3F1BCA3F620056CDC3 /* PBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C3E1BCA3F620056CDC3 /* PBConstants.swift */; };
 		53825C411BCA40F10056CDC3 /* PBNetLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C401BCA40F10056CDC3 /* PBNetLayer.swift */; };
 		53825C431BCA4E370056CDC3 /* PuzzleSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */; };
+		538FA6E21BEE0B2A00C53076 /* NewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538FA6E11BEE0B2A00C53076 /* NewUserViewController.swift */; };
 		53C756421BEB81AC006D875C /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C756411BEB81AC006D875C /* CoreDataManager.swift */; };
 		53C756451BEB8867006D875C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C756441BEB8867006D875C /* User.swift */; };
 		53C756471BEB8872006D875C /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53C756461BEB8872006D875C /* Question.swift */; };
@@ -59,6 +60,7 @@
 		53825C3E1BCA3F620056CDC3 /* PBConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBConstants.swift; sourceTree = "<group>"; };
 		53825C401BCA40F10056CDC3 /* PBNetLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PBNetLayer.swift; sourceTree = "<group>"; };
 		53825C421BCA4E370056CDC3 /* PuzzleSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSelectViewController.swift; sourceTree = "<group>"; };
+		538FA6E11BEE0B2A00C53076 /* NewUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewController.swift; sourceTree = "<group>"; };
 		53C756411BEB81AC006D875C /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		53C756441BEB8867006D875C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		53C756461BEB8872006D875C /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */,
 				535FA6151BC2958E0029B18C /* GridViewCell.swift */,
 				535FA6021BC242A60029B18C /* Main.storyboard */,
+				538FA6E11BEE0B2A00C53076 /* NewUserViewController.swift */,
 				531F510A1BECBDD20081AC7B /* UserViewController.swift */,
 				531F510C1BECBED80081AC7B /* UserDetailsViewController.swift */,
 				53C756411BEB81AC006D875C /* CoreDataManager.swift */,
@@ -220,6 +223,7 @@
 				531F510B1BECBDD20081AC7B /* UserViewController.swift in Sources */,
 				531F510D1BECBED80081AC7B /* UserDetailsViewController.swift in Sources */,
 				53C756421BEB81AC006D875C /* CoreDataManager.swift in Sources */,
+				538FA6E21BEE0B2A00C53076 /* NewUserViewController.swift in Sources */,
 				533859B41BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift in Sources */,
 				53825C3F1BCA3F620056CDC3 /* PBConstants.swift in Sources */,
 				535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */,

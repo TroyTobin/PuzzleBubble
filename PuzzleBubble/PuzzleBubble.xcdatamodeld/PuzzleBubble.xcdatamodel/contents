@@ -4,12 +4,13 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="User" syncable="YES">
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="completed" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Question" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="Question" positionX="-54" positionY="9" width="128" height="60"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

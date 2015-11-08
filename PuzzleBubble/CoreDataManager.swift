@@ -51,7 +51,7 @@ class CoreDataStackManager {
     
     print("Instantiating the managedObjectModel property")
     
-    let modelURL = NSBundle.mainBundle().URLForResource("Virtual_Tourist", withExtension: "momd")!
+    let modelURL = NSBundle.mainBundle().URLForResource("PuzzleBubble", withExtension: "momd")!
     return NSManagedObjectModel(contentsOfURL: modelURL)!
   }()
   
