@@ -65,10 +65,7 @@ class NewUserViewController: UIViewController {
   
   @IBAction func play(sender: AnyObject) {
     let _name = self.input.text
-    print("name = \(name)")
     if _name != "" {
-      print ("All good")
-      print ("gender = \(gender)")
       if let _gender = gender {
     
         /// Create the user and return to the main screen
