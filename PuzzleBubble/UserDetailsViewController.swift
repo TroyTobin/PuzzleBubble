@@ -52,7 +52,21 @@ class UserDetailsViewController: UIViewController {
       let nameLabel = NSAttributedString(string: "\(currentUser.name)", attributes: nameFontAttributes)
 
       userName.attributedText = nameLabel
-      print ("gender = '\(currentUser.gender)'")
+      
+      let scoreFontAttributes = [
+        NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 16.0)!,
+        NSForegroundColorAttributeName: UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0),
+      ]
+      
+      let scoreLabel = NSAttributedString(string: "\(currentUser.score)", attributes: scoreFontAttributes)
+      userScore.attributedText = scoreLabel
+      
+      // Get the level
+      
+      // Get the number of questions completed
+      
+      
+      
       if (currentUser.gender == "male") {
         userGender.image = UIImage(named: "man")
       } else {
