@@ -23,6 +23,7 @@
 		53563E251BF0AB52005911AC /* ChangeUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E241BF0AB52005911AC /* ChangeUserView.swift */; };
 		53563E271BF0AB66005911AC /* ChangeUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E261BF0AB66005911AC /* ChangeUserListViewController.swift */; };
 		53563E291BF0AB73005911AC /* ChangeUserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E281BF0AB73005911AC /* ChangeUserListCell.swift */; };
+		53563E2B1BF0B230005911AC /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E2A1BF0B230005911AC /* AboutView.swift */; };
 		535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA5FE1BC242A60029B18C /* AppDelegate.swift */; };
 		535FA6011BC242A60029B18C /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6001BC242A60029B18C /* PuzzleViewController.swift */; };
 		535FA6041BC242A60029B18C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535FA6021BC242A60029B18C /* Main.storyboard */; };
@@ -58,6 +59,7 @@
 		53563E241BF0AB52005911AC /* ChangeUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserView.swift; sourceTree = "<group>"; };
 		53563E261BF0AB66005911AC /* ChangeUserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserListViewController.swift; sourceTree = "<group>"; };
 		53563E281BF0AB73005911AC /* ChangeUserListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserListCell.swift; sourceTree = "<group>"; };
+		53563E2A1BF0B230005911AC /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		535FA5FB1BC242A60029B18C /* PuzzleBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuzzleBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		535FA5FE1BC242A60029B18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		535FA6001BC242A60029B18C /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */,
 				535FA6151BC2958E0029B18C /* GridViewCell.swift */,
 				535FA6021BC242A60029B18C /* Main.storyboard */,
+				53563E2A1BF0B230005911AC /* AboutView.swift */,
 				53563E241BF0AB52005911AC /* ChangeUserView.swift */,
 				53563E261BF0AB66005911AC /* ChangeUserListViewController.swift */,
 				53563E281BF0AB73005911AC /* ChangeUserListCell.swift */,
@@ -235,6 +238,7 @@
 				533859BC1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift in Sources */,
 				533859BA1BD370D800BF79D4 /* PuzzleSubListViewCell.swift in Sources */,
 				53825C411BCA40F10056CDC3 /* PBNetLayer.swift in Sources */,
+				53563E2B1BF0B230005911AC /* AboutView.swift in Sources */,
 				535FA6161BC2958E0029B18C /* GridViewCell.swift in Sources */,
 				53C756471BEB8872006D875C /* Question.swift in Sources */,
 				533859B61BD36D8300BF79D4 /* PuzzleSubSelectViewController.swift in Sources */,

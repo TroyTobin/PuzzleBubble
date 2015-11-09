@@ -59,10 +59,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     } else if (self.settingList[indexPath.row] == "Change Player") {
       let changeUserController = self.storyboard!.instantiateViewControllerWithIdentifier("ChangeUserView") as! ChangeUserViewController
       self.presentViewController(changeUserController, animated: true, completion: nil)
-
-      
     } else if (self.settingList[indexPath.row] == "About") {
-      
+      let aboutController = self.storyboard!.instantiateViewControllerWithIdentifier("AboutView") as! AboutViewController
+      self.presentViewController(aboutController, animated: true, completion: nil)
     }
   }
 }
