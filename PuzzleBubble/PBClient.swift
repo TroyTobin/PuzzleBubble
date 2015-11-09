@@ -159,15 +159,23 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
     let answers : NSMutableArray = []
     if question != nil && variables != nil {
       for variable in variables! {
-        print ("variable = \(variable)")
         var answer:Int = 0
+        var count:Int = 0
         for operand in question! {
-          print ("operand = \(operand)")
           if operand as! String == "?" {
-            answer = PBClient.doOperator(answer, valueB: Int(variable as! Int))!
+            if count == 0 {
+              answer = Int(variable as! Int)
+            } else {
+              answer = PBClient.doOperator(answer, valueB: Int(variable as! Int))!
+            }
           } else {
-            answer = PBClient.doOperator(answer, valueB: Int(operand.integerValue as Int))!
+            if count == 0 {
+              answer = Int(operand.integerValue as Int)
+            } else {
+              answer = PBClient.doOperator(answer, valueB: Int(operand.integerValue as Int))!
+            }
           }
+          count += 1
         }
         answers.insertObject(answer, atIndex: answers.count)
       }
