@@ -39,6 +39,8 @@ class PuzzleViewController: UIViewController {
     print ("Set the question to \(PBClient.questionId)")
     /// Set the notification handler for reloading the question
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadQuestion:", name: "reloadQuestion",object: nil)
+    /// Set the notification handler for reloading the answers
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadAnswers:", name: "reloadAnswers",object: nil)
     
     /// notify listeners they can use the data
     NSNotificationCenter.defaultCenter().postNotificationName("reloadQuestion", object: nil)
@@ -47,6 +49,7 @@ class PuzzleViewController: UIViewController {
   
   /// Refresh the question
   func reloadQuestion(notification: NSNotification) {
+    self.startDate = 0.0
     /// Retrieve the list of puzzle groups available
     PBClient.sharedInstance.getPuzzleEquation() { results, errorString in
       
@@ -98,6 +101,20 @@ class PuzzleViewController: UIViewController {
           })
         }
         
+        // Retrieve the max time
+        PBClient.max_time = 0
+        print("getting the max_time")
+        if let _max_time = resultsContainer?[0].valueForKey("max_time") as? Int {
+          PBClient.max_time = _max_time
+        }
+        print ("max_time = \(PBClient.max_time)")
+        
+        // Retrieve the max score
+        PBClient.max_score = 0
+        if let _max_score = resultsContainer?[0].valueForKey("max_score") as? Int {
+          PBClient.max_score = _max_score
+        }
+        
         // calculate all of the answers to the questions
         PBClient.answers = PBClient.sharedInstance.getPuzzleAnswers(question, variables: variables)
     
@@ -106,7 +123,11 @@ class PuzzleViewController: UIViewController {
       }
     }
     self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true);
-    self.startDate = 60.0;
+  }
+  
+  /// Refresh the answers
+  func reloadAnswers(notification: NSNotification) {
+    self.startDate = Double(PBClient.max_time!);
   }
 
   func stopTimer() {
@@ -116,7 +137,9 @@ class PuzzleViewController: UIViewController {
   func updateTimer() {
     // Create date from the elapsed time
     self.startDate! -= 0.1
-    self.timerLabel?.text = NSString(format: "%.1f", self.startDate!) as String
+    dispatch_async(dispatch_get_main_queue(), {
+      self.timerLabel?.text = NSString(format: "%.1f", self.startDate!) as String
+    })
   }
   
   @IBAction func resetQuestion(sender: AnyObject) {
