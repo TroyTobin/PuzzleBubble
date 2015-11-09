@@ -25,22 +25,32 @@ class InstructionsViewController: UIViewController {
     paragraphStyle.alignment = NSTextAlignment.Left
     
     let settingsFontAttributes = [
-      NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 14.5)!,
+      NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 14.0)!,
       NSForegroundColorAttributeName: UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0),
       NSParagraphStyleAttributeName: paragraphStyle
     ]
     var instructions = "CREATE NEW USER\n"
-    instructions += "1. Create a new user by specifying a username and gender.\n\n"
+    instructions += "  1. Create a new user by specifying a\n"
+    instructions += "      username and gender.\n\n"
     instructions += "SELECT A PUZZLE TO SOLVE\n"
-    instructions += "1. Select the puzzle type to solve\n"
-    instructions += "2. Select the puzzle level to solve\n"
-    instructions += "3. Select the puzzle question to solve\n\n"
+    instructions += "  1. Select the puzzle type to solve\n"
+    instructions += "  2. Select the puzzle level to solve\n"
+    instructions += "  3. Select the puzzle question to solve\n\n"
     instructions += "SOLVE THE PUZZLE\n"
-    instructions += "1. The question will be presented as an equation in the form \"1 + ?\"\n"
-    instructions += "2. A list of variables are presented in the form \"? = 1\"\n"
-    instructions += "3. For each variable in the list, substitute into the question equation\n"
-    instructions += "4. Enter the answers in the number grid in the order the variables appear\n"
-    instructions += "5. A correct sequence will appear GREEN, an incorrect sequence will appear RED"
+    instructions += "  1. The question will be shown as,\n"
+    instructions += "                     \"1 + ?\"\n"
+    instructions += "  2. A list of variables are shown as,\n"
+    instructions += "                     \"? = 2\"\n"
+    instructions += "                     \"? = 4\"\n"
+    instructions += "  3. For each variable in the list,\n"
+    instructions += "      substitute into the quesiton\n"
+    instructions += "      and solve,\n"
+    instructions += "                     \"1 + 2\" = 3\n"
+    instructions += "                     \"1 + 4\" = 5\n"
+    instructions += "  4. Enter the answers in the number\n"
+    instructions += "      grid in the order the variables appear\n"
+    instructions += "  5. A correct sequence will appear GREEN\n"
+    instructions += "      An incorrect sequence will appear RED"
     let aboutLabel = NSAttributedString(string: instructions, attributes: settingsFontAttributes)
     instructionText.attributedText = aboutLabel
   }
