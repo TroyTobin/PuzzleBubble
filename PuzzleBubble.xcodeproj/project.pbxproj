@@ -17,6 +17,12 @@
 		533859B81BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859B71BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift */; };
 		533859BA1BD370D800BF79D4 /* PuzzleSubListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859B91BD370D800BF79D4 /* PuzzleSubListViewCell.swift */; };
 		533859BC1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533859BB1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift */; };
+		53563E1F1BEF7634005911AC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E1E1BEF7634005911AC /* SettingsViewController.swift */; };
+		53563E211BF09A13005911AC /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E201BF09A13005911AC /* SettingsViewCell.swift */; };
+		53563E231BF0A40C005911AC /* SettingsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E221BF0A40C005911AC /* SettingsContainerViewController.swift */; };
+		53563E251BF0AB52005911AC /* ChangeUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E241BF0AB52005911AC /* ChangeUserView.swift */; };
+		53563E271BF0AB66005911AC /* ChangeUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E261BF0AB66005911AC /* ChangeUserListViewController.swift */; };
+		53563E291BF0AB73005911AC /* ChangeUserListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53563E281BF0AB73005911AC /* ChangeUserListCell.swift */; };
 		535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA5FE1BC242A60029B18C /* AppDelegate.swift */; };
 		535FA6011BC242A60029B18C /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 535FA6001BC242A60029B18C /* PuzzleViewController.swift */; };
 		535FA6041BC242A60029B18C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 535FA6021BC242A60029B18C /* Main.storyboard */; };
@@ -46,6 +52,12 @@
 		533859B71BD36DF400BF79D4 /* PuzzleSubListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSubListTableViewController.swift; sourceTree = "<group>"; };
 		533859B91BD370D800BF79D4 /* PuzzleSubListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleSubListViewCell.swift; sourceTree = "<group>"; };
 		533859BB1BD3711400BF79D4 /* PuzzleQuestionListViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleQuestionListViewCell.swift; sourceTree = "<group>"; };
+		53563E1E1BEF7634005911AC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		53563E201BF09A13005911AC /* SettingsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		53563E221BF0A40C005911AC /* SettingsContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsContainerViewController.swift; sourceTree = "<group>"; };
+		53563E241BF0AB52005911AC /* ChangeUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserView.swift; sourceTree = "<group>"; };
+		53563E261BF0AB66005911AC /* ChangeUserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserListViewController.swift; sourceTree = "<group>"; };
+		53563E281BF0AB73005911AC /* ChangeUserListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeUserListCell.swift; sourceTree = "<group>"; };
 		535FA5FB1BC242A60029B18C /* PuzzleBubble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PuzzleBubble.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		535FA5FE1BC242A60029B18C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		535FA6001BC242A60029B18C /* PuzzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +124,12 @@
 				535FA6131BC24E3F0029B18C /* GridCollectionViewController.swift */,
 				535FA6151BC2958E0029B18C /* GridViewCell.swift */,
 				535FA6021BC242A60029B18C /* Main.storyboard */,
+				53563E241BF0AB52005911AC /* ChangeUserView.swift */,
+				53563E261BF0AB66005911AC /* ChangeUserListViewController.swift */,
+				53563E281BF0AB73005911AC /* ChangeUserListCell.swift */,
+				53563E1E1BEF7634005911AC /* SettingsViewController.swift */,
+				53563E221BF0A40C005911AC /* SettingsContainerViewController.swift */,
+				53563E201BF09A13005911AC /* SettingsViewCell.swift */,
 				538FA6E11BEE0B2A00C53076 /* NewUserViewController.swift */,
 				531F510A1BECBDD20081AC7B /* UserViewController.swift */,
 				531F510C1BECBED80081AC7B /* UserDetailsViewController.swift */,
@@ -223,9 +241,11 @@
 				531F510B1BECBDD20081AC7B /* UserViewController.swift in Sources */,
 				531F510D1BECBED80081AC7B /* UserDetailsViewController.swift in Sources */,
 				53C756421BEB81AC006D875C /* CoreDataManager.swift in Sources */,
+				53563E291BF0AB73005911AC /* ChangeUserListCell.swift in Sources */,
 				538FA6E21BEE0B2A00C53076 /* NewUserViewController.swift in Sources */,
 				533859B41BD36B8300BF79D4 /* PuzzleQuestionListTableViewController.swift in Sources */,
 				53825C3F1BCA3F620056CDC3 /* PBConstants.swift in Sources */,
+				53563E231BF0A40C005911AC /* SettingsContainerViewController.swift in Sources */,
 				535FA6071BC242A60029B18C /* PuzzleBubble.xcdatamodeld in Sources */,
 				533859AE1BD31C1100BF79D4 /* PuzzleListTableViewController.swift in Sources */,
 				53825C431BCA4E370056CDC3 /* PuzzleSelectViewController.swift in Sources */,
@@ -233,9 +253,13 @@
 				533859B01BD32A2200BF79D4 /* PuzzleListViewCell.swift in Sources */,
 				533859B21BD36A8400BF79D4 /* PuzzleQuestionSelectViewController.swift in Sources */,
 				535FA6141BC24E3F0029B18C /* GridCollectionViewController.swift in Sources */,
+				53563E211BF09A13005911AC /* SettingsViewCell.swift in Sources */,
 				53825C3D1BCA3F570056CDC3 /* PBClient.swift in Sources */,
+				53563E251BF0AB52005911AC /* ChangeUserView.swift in Sources */,
 				535FA5FF1BC242A60029B18C /* AppDelegate.swift in Sources */,
+				53563E271BF0AB66005911AC /* ChangeUserListViewController.swift in Sources */,
 				53C756451BEB8867006D875C /* User.swift in Sources */,
+				53563E1F1BEF7634005911AC /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
