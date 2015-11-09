@@ -350,7 +350,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4La-7h-WQo"/>
-                                    <barButtonItem image="instruction" id="3uG-lx-se1"/>
+                                    <barButtonItem image="instruction" id="3uG-lx-se1">
+                                        <connections>
+                                            <segue destination="QOz-mO-QaF" kind="show" id="4Jl-EQ-PYg"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.074509803920000006" green="0.098039215690000001" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
@@ -1113,7 +1117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hak-xx-q4n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2913" y="1584"/>
+            <point key="canvasLocation" x="-2937" y="1580"/>
         </scene>
         <!--Puzzle Question Select View Controller-->
         <scene sceneID="BBg-CH-s7S">
@@ -1477,7 +1481,7 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woman" translatesAutoresizingMaskIntoConstraints="NO" id="BeK-Uh-kN1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="BeK-Uh-kN1">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <constraints>
@@ -1806,7 +1810,112 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ytp-tQ-Zra" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2364" y="731"/>
+            <point key="canvasLocation" x="-2403" y="731"/>
+        </scene>
+        <!--Instructions View Controller-->
+        <scene sceneID="K1O-vj-sUH">
+            <objects>
+                <viewController id="QOz-mO-QaF" customClass="InstructionsViewController" customModule="PuzzleBubble" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Vci-wG-hcN"/>
+                        <viewControllerLayoutGuide type="bottom" id="jlp-Z0-Ogv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ndg-yd-LGD">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Atf-An-3aU">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="KEo-M8-MBv"/>
+                                    <constraint firstAttribute="height" constant="400" id="Y6L-63-pPO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="KEo-M8-MBv"/>
+                                        <exclude reference="Y6L-63-pPO"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="KEo-M8-MBv"/>
+                                        <include reference="Y6L-63-pPO"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8np-De-2Wl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hw3-RC-KzP"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Instructions" id="hk8-iC-v6n">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Yc2-Lc-1XY">
+                                            <connections>
+                                                <action selector="dismissView:" destination="QOz-mO-QaF" id="RJD-vN-kO0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hw3-RC-KzP"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="hw3-RC-KzP"/>
+                                    </mask>
+                                </variation>
+                            </navigationBar>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8np-De-2Wl" firstAttribute="leading" secondItem="Ndg-yd-LGD" secondAttribute="leadingMargin" constant="-20" id="2zb-8D-Zum"/>
+                            <constraint firstItem="Atf-An-3aU" firstAttribute="centerX" secondItem="Ndg-yd-LGD" secondAttribute="centerX" id="H6V-ds-NzS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8np-De-2Wl" secondAttribute="trailing" constant="-20" id="YaJ-4b-Ir9"/>
+                            <constraint firstItem="Atf-An-3aU" firstAttribute="centerY" secondItem="Ndg-yd-LGD" secondAttribute="centerY" id="l1o-XO-saT"/>
+                            <constraint firstItem="8np-De-2Wl" firstAttribute="top" secondItem="Ndg-yd-LGD" secondAttribute="topMargin" id="w5M-wD-t5X"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Atf-An-3aU"/>
+                                <exclude reference="8np-De-2Wl"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="2zb-8D-Zum"/>
+                                <exclude reference="YaJ-4b-Ir9"/>
+                                <exclude reference="w5M-wD-t5X"/>
+                                <exclude reference="H6V-ds-NzS"/>
+                                <exclude reference="l1o-XO-saT"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Atf-An-3aU"/>
+                                <include reference="8np-De-2Wl"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="2zb-8D-Zum"/>
+                                <include reference="YaJ-4b-Ir9"/>
+                                <include reference="w5M-wD-t5X"/>
+                                <include reference="H6V-ds-NzS"/>
+                                <include reference="l1o-XO-saT"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="instructionText" destination="Atf-An-3aU" id="h73-UP-4F4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUS-xz-2hE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1872" y="906"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="1bq-ha-HBO">
@@ -2015,7 +2124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1LY-W6-T96" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3579" y="906"/>
+            <point key="canvasLocation" x="-3597" y="906"/>
         </scene>
         <!--Settings Container View Controller-->
         <scene sceneID="YAf-pw-HUy">
@@ -2118,7 +2227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EAB-Mr-b17" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2913" y="906"/>
+            <point key="canvasLocation" x="-2937" y="906"/>
         </scene>
         <!--Change User List View Controller-->
         <scene sceneID="dX1-vU-hw6">
@@ -2229,7 +2338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pzp-Au-Hmu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3579" y="1575"/>
+            <point key="canvasLocation" x="-3597" y="1580"/>
         </scene>
     </scenes>
     <resources>

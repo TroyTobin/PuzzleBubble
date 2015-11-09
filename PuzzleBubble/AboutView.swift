@@ -27,7 +27,10 @@ class AboutViewController: UIViewController {
       NSForegroundColorAttributeName: UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0),
       NSParagraphStyleAttributeName: paragraphStyle
     ]
-    let about = "DEVELOPED BY\nTroy Tobin\n\n\nI hope you enjoy!\n\n(C) 2015 Troy Tobin"
+    var about = "DEVELOPED BY\n"
+    about    += "Troy Tobin\n\n\n"
+    about    += "I hope you enjoy!\n\n"
+    about    += "(C) 2015 Troy Tobin"
     let aboutLabel = NSAttributedString(string: about, attributes: settingsFontAttributes)
     aboutText.attributedText = aboutLabel
   }
