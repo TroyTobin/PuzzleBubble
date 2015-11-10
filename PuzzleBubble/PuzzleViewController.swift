@@ -77,9 +77,21 @@ class PuzzleViewController: UIViewController {
             elementIdx++
           }
           questionString += "\(question![elementIdx])"
-          print ("questionString = \(questionString)")
+          
+          
+          let paragraphStyle = NSMutableParagraphStyle()
+          paragraphStyle.alignment = NSTextAlignment.Center
+          
+          let questionFontAttributes = [
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-Bold", size: 28.0)!,
+            NSForegroundColorAttributeName: UIColor(red:0.11, green:0.41, blue:0.17, alpha:1.0),//UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0),
+            NSParagraphStyleAttributeName: paragraphStyle
+          ]
+          
+          let questionLabel = NSAttributedString(string: questionString, attributes: questionFontAttributes)
+          
           dispatch_async(dispatch_get_main_queue(), {
-            self.PuzzleQuestion.text = questionString
+            self.PuzzleQuestion.attributedText = questionLabel
           })
         }
         
@@ -87,7 +99,7 @@ class PuzzleViewController: UIViewController {
         if let _variables = resultsContainer?[0].valueForKey("variables") as? NSArray {
           variables = _variables
           print ("variables = \(variables)")
-          var variablesString = ""
+          var variablesString = "VARIABLE LIST\n"
           var elementIdx = 0
           
           // Create the string representation of the variable list
@@ -96,8 +108,20 @@ class PuzzleViewController: UIViewController {
             variablesString += "? = \(variables![elementIdx])\n"
             elementIdx++
           }
+          
+          let paragraphStyle = NSMutableParagraphStyle()
+          paragraphStyle.alignment = NSTextAlignment.Center
+          
+          let variablesFontAttributes = [
+            NSFontAttributeName : UIFont(name: "HelveticaNeue-Bold", size: 17.0)!,
+            NSForegroundColorAttributeName: UIColor(red:0.95, green:0.30, blue:0.15, alpha:1.0),
+            NSParagraphStyleAttributeName: paragraphStyle
+          ]
+          
+          let variablesLabel = NSAttributedString(string: variablesString, attributes: variablesFontAttributes)
+
           dispatch_async(dispatch_get_main_queue(), {
-            self.PuzzleVariables.text = variablesString
+            self.PuzzleVariables.attributedText = variablesLabel
           })
         }
         
@@ -137,8 +161,20 @@ class PuzzleViewController: UIViewController {
   func updateTimer() {
     // Create date from the elapsed time
     self.startDate! -= 0.1
+    
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.alignment = NSTextAlignment.Center
+    
+    let timeFontAttributes = [
+      NSFontAttributeName : UIFont(name: "HelveticaNeue-Bold", size: 20.0)!,
+      NSForegroundColorAttributeName: UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0),
+      NSParagraphStyleAttributeName: paragraphStyle
+    ]
+    
+    let timeLabel = NSAttributedString(string: NSString(format: "%.1f", self.startDate!) as String, attributes: timeFontAttributes)
+
     dispatch_async(dispatch_get_main_queue(), {
-      self.timerLabel?.text = NSString(format: "%.1f", self.startDate!) as String
+      self.timerLabel?.attributedText = timeLabel
     })
   }
   
