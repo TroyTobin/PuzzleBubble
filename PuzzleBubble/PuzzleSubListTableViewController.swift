@@ -74,7 +74,7 @@ class PuzzleSubListTableViewController: UIViewController, UITableViewDataSource,
     if let _ = self.subPuzzles {
       return self.subPuzzles!.count
     }
-    return 0
+    return 1
   }
   
   /// delegate function to set a cell contents
@@ -82,6 +82,13 @@ class PuzzleSubListTableViewController: UIViewController, UITableViewDataSource,
     
     /// get a reusable cell to populate
     let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleSubGroupCell")! as! PuzzleSubListViewCell
+    
+    if self.subPuzzles == nil || self.subPuzzles?.count == 0 {
+      return cell
+    }
+    
+    cell.activity.hidden = true
+    
     // get the student at the index
     let puzzleGroup = self.subPuzzles![indexPath.row] as! NSDictionary
     let level = puzzleGroup.valueForKey("level") as! Int
@@ -95,6 +102,10 @@ class PuzzleSubListTableViewController: UIViewController, UITableViewDataSource,
   
   /// delegate function when cell selected.  Want to load student media url in web view
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    if self.subPuzzles == nil || self.subPuzzles?.count == 0 {
+      return
+    }
     
     let puzzleQuestionController = self.storyboard!.instantiateViewControllerWithIdentifier("QuestionPuzzleView") as! PuzzleQuestionSelectViewController
     

@@ -10,5 +10,6 @@ import UIKit
 class PuzzleSubListViewCell: UITableViewCell {
   
   var level: Int? = nil
+  @IBOutlet weak var activity: UIActivityIndicatorView!
   
 }

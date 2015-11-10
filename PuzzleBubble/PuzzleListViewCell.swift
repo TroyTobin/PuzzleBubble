@@ -12,4 +12,6 @@ class PuzzleListViewCell: UITableViewCell {
   var id: Int? = nil
   var puzzle: String? = nil
   var prose: String? = nil
+  @IBOutlet weak var activity: UIActivityIndicatorView!
+  
 }

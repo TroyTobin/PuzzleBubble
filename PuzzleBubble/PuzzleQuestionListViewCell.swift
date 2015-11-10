@@ -11,5 +11,6 @@ import UIKit
 class PuzzleQustionListViewCell: UITableViewCell {
  
   /// @TODO
+  @IBOutlet weak var activity: UIActivityIndicatorView!
   
 }

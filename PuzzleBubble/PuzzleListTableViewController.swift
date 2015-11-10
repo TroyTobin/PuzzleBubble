@@ -27,6 +27,9 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     self.tableView.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
     self.tableView.layer.borderWidth = 2.0;
     self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    dispatch_async(dispatch_get_main_queue(), {
+      self.tableView.reloadData()
+    })
     
     /// Retrieve the list of puzzle groups available
     PBClient.sharedInstance.getPuzzleGroups() { results, errorString in
@@ -65,7 +68,7 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     if let _ = self.puzzles {
       return self.puzzles!.count
     }
-    return 0
+    return 1
   }
   
   /// delegate function to set a cell contents
@@ -73,6 +76,13 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     
     /// get a reusable cell to populate
     let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleGroupCell")! as! PuzzleListViewCell
+    
+    if self.puzzles == nil || self.puzzles?.count == 0 {
+      return cell
+    }
+    print("hiding activity \(cell.activity.hidden)")
+    cell.activity.hidden = true
+    print("hidden activity \(cell.activity.hidden)")
     
     /// get the student at the index
     let puzzleGroup = self.puzzles![indexPath.row] as! NSDictionary
@@ -93,6 +103,10 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
   
   /// delegate function when cell selected.  Want to load student media url in web view
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    if self.puzzles == nil || self.puzzles?.count == 0 {
+      return
+    }
     
     let puzzleController = self.storyboard!.instantiateViewControllerWithIdentifier("SubPuzzleView") as! PuzzleSubSelectViewController
     

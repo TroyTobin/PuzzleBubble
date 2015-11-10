@@ -11,5 +11,6 @@ import UIKit
 class GridViewCell: UICollectionViewCell {
   
   
+  @IBOutlet weak var activity: UIActivityIndicatorView!
   @IBOutlet weak var gridLabel: UILabel!
 }

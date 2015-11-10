@@ -60,6 +60,7 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
       }
       PBClient.answersOrder!.insertObject(randIndex, atIndex: (PBClient.answersOrder?.count)!)
       gridCell.gridLabel.text = "\(PBClient.answers![randIndex])"
+      gridCell.activity.hidden = true
     }
     else {
       gridCell.gridLabel.text = "\(PBClient.answers![PBClient.answersOrder![indexPath.row] as! Int)"

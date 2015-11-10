@@ -93,6 +93,12 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     /// get a reusable cell to populate
     let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleQuestionCell")! as! PuzzleQustionListViewCell
     
+    if self.puzzleQuestions == nil || self.puzzleQuestions?.count == 0 {
+      return cell
+    }
+    
+    cell.activity.hidden = true
+    
     /// set the cell contents
     var completedText = ""
     for completed in PBClient.currentUser!.completed {
@@ -109,6 +115,10 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
   
   /// delegate function when cell selected.  Want to load student media url in web view
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    
+    if self.puzzleQuestions == nil || self.puzzleQuestions?.count == 0 {
+      return
+    }
     
     let puzzleController = self.storyboard!.instantiateViewControllerWithIdentifier("PuzzleView") as! PuzzleViewController
     print ("Quesitons = \(self.puzzleQuestions)")
