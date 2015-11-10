@@ -24,5 +24,6 @@ extension PBClient {
     static let PuzzleGroups = "PuzzleGroups"
     static let PuzzleGroup  = "PuzzleGroup"
     static let PuzzleItem   = "PuzzleItem"
+    static let PuzzleMeta   = "PuzzleMeta"
   }
 }

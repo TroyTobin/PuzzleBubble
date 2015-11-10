@@ -80,9 +80,8 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     if self.puzzles == nil || self.puzzles?.count == 0 {
       return cell
     }
-    print("hiding activity \(cell.activity.hidden)")
+    
     cell.activity.hidden = true
-    print("hidden activity \(cell.activity.hidden)")
     
     /// get the student at the index
     let puzzleGroup = self.puzzles![indexPath.row] as! NSDictionary

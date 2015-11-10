@@ -18,6 +18,8 @@ class UserDetailsViewController: UIViewController {
   @IBOutlet weak var userCompletionLabel: UILabel!
   @IBOutlet weak var userCompletion: UILabel!
   @IBOutlet weak var userGender: UIImageView!
+  @IBOutlet weak var levelActivity: UIActivityIndicatorView!
+  @IBOutlet weak var completionActivity: UIActivityIndicatorView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,6 +39,9 @@ class UserDetailsViewController: UIViewController {
     userCompletionLabel.attributedText = completionLabel
     let scoreLabel = NSAttributedString(string: "Score", attributes: textFontAttributes)
     userScoreLabel.attributedText = scoreLabel
+    
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadUserStats:", name: "reloadUserStats",object: nil)
 
   }
   
@@ -63,11 +68,6 @@ class UserDetailsViewController: UIViewController {
       let scoreLabel = NSAttributedString(string: "\(currentUser.score)", attributes: scoreFontAttributes)
       userScore.attributedText = scoreLabel
       
-      // Get the level
-      
-      // Get the number of questions completed
-      
-      
       
       if (currentUser.gender == "male") {
         userGender.image = UIImage(named: "man")
@@ -75,5 +75,42 @@ class UserDetailsViewController: UIViewController {
         userGender.image = UIImage(named: "woman")
       }
     }
+  }
+  
+  func reloadUserStats(notification: NSNotification) {
+    print ("reload stats")
+    
+    let scoreFontAttributes = [
+      NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 16.0)!,
+      NSForegroundColorAttributeName: UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0),
+    ]
+    
+    let num_solved = (PBClient.currentUser?.completed.count)! as Int
+    print("\(num_solved)/\(PBClient.num_puzzles)")
+    let completionLabel = NSAttributedString(string: "\(num_solved)/\(PBClient.num_puzzles)", attributes: scoreFontAttributes)
+    dispatch_async(dispatch_get_main_queue(), {
+      self.completionActivity.hidden = true
+      self.userCompletion.attributedText = completionLabel
+    })
+    
+    let score = PBClient.currentUser?.score as! Int
+    let levels = PBClient.score_levels
+    var levelIndex = 1
+    for level in levels! {
+      let _level = level as! Int
+      if score < _level {
+        break
+      } else {
+        levelIndex += 1
+      }
+    }
+    let level_text = PBClient.score_text![levelIndex] as! String
+    print("\(level_text)")
+    let levelTextLabel = NSAttributedString(string: "\(level_text)", attributes: scoreFontAttributes)
+    
+    dispatch_async(dispatch_get_main_queue(), {
+      self.levelActivity.hidden = true
+      self.userLevel.attributedText = levelTextLabel
+    })
   }
 }

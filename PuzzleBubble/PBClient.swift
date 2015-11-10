@@ -13,7 +13,10 @@ import CoreData
 class PBClient: NSObject, NSFetchedResultsControllerDelegate {
   
   var pbNet:PBNetLayer
-  
+
+  static var num_puzzles: Int = 0
+  static var score_levels: NSArray? = nil
+  static var score_text: NSArray? = nil
   static var puzzleGroup: String? = nil
   static var puzzleLevel: Int? = nil
   static var questionId: String? = nil
@@ -154,6 +157,18 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
       }
     } else {
       completionHandler(results: nil, errorString: "Invalid puzzle question \(PBClient.puzzleGroup)")
+    }
+  }
+  
+  /// Get the puzzle meta data for the total number of puzzles, and the score levels
+  func getPuzzleMeta(completionHandler: (results: AnyObject?, errorString: String?) -> Void) {
+    /// Retrieve the sub-puzzle group via the PB Network Layer
+    pbNet.doParseGetReq(PBClient.ParseMethods.PuzzleMeta) { result, error in
+      if let inError = error {
+        completionHandler(results: nil, errorString: inError.localizedDescription)
+      } else {
+        completionHandler(results: result, errorString: nil)
+      }
     }
   }
   

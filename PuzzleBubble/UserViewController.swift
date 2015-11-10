@@ -50,6 +50,34 @@ class UserViewController: UIViewController {
       self.userView.hidden = false
       self.playButton.hidden = false
     }
+    
+    PBClient.sharedInstance.getPuzzleMeta() { results, errorString in
+      
+      if let inError = errorString {
+        /// Error getting the puzzle groups
+        print("Error \(inError)")
+      } else {
+        /// Okay so far - but is there a "user" JSON object?
+        let metaContainer = results?.valueForKey("results") as? NSArray
+        print ("\(metaContainer)")
+        
+        // Retrieve the num puzzles
+        if let _numPuzzles = metaContainer?[0].valueForKey("num_puzzles") as? Int {
+          PBClient.num_puzzles = _numPuzzles
+        }
+        // Retrieve the level scores
+        if let _scoreLevels = metaContainer?[0].valueForKey("score_levels") as? NSArray {
+          PBClient.score_levels = _scoreLevels
+        }
+        // Retrieve the level nams
+        if let _scoreText = metaContainer?[0].valueForKey("score_text") as? NSArray {
+          PBClient.score_text = _scoreText
+        }
+        
+        // reload the user stats now we have the data
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadUserStats", object: nil)
+      }
+    }
   }
 }
 
