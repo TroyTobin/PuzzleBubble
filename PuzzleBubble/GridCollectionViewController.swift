@@ -91,19 +91,18 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   /// :param: indexPath The index of the item selected
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath) {
     let cell = collectionView.cellForItemAtIndexPath(indexPath) as! GridViewCell
-    
     cell.gridLabel.textColor = UIColor.whiteColor()
     cell.gridLabel.backgroundColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
-    
-    PBClient.selectedAnswersOrder!.insertObject(indexPath.row, atIndex: 0)
-    PBClient.selectedAnswers!.insertObject(Int(cell.gridLabel.text!)!, atIndex: (PBClient.selectedAnswers?.count)!)
-    // If all tiles have been selected check the results order for conformance
-    if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
-      PBClient.correct = PBClient.sharedInstance.checkPuzzleAnswers()
-      dispatch_async(dispatch_get_main_queue(), {
-        collectionView.reloadData()
-      })
-      
+    if (((PBClient.selectedAnswersOrder?.containsObject(indexPath.row)) == false)) {
+      PBClient.selectedAnswersOrder!.insertObject(indexPath.row, atIndex: 0)
+      PBClient.selectedAnswers!.insertObject(Int(cell.gridLabel.text!)!, atIndex: (PBClient.selectedAnswers?.count)!)
+      // If all tiles have been selected check the results order for conformance
+      if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
+        PBClient.correct = PBClient.sharedInstance.checkPuzzleAnswers()
+        dispatch_async(dispatch_get_main_queue(), {
+          collectionView.reloadData()
+        })
+      }
     }
   }
 }
