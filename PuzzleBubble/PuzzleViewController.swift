@@ -80,10 +80,20 @@ class PuzzleViewController: UIViewController {
           // Create the string representation of the questions
           // and set the UI text label with the contents
           while elementIdx < (question!.count - 1) {
-            questionString += "\(question![elementIdx]) \(PBClient.getOperator()!) "
+            if question![elementIdx] as! String == "?" {
+              questionString += "A \(PBClient.getOperator()!) "
+              
+            } else {
+              questionString += "\(question![elementIdx]) \(PBClient.getOperator()!) "
+            }
             elementIdx++
           }
-          questionString += "\(question![elementIdx])"
+          if question![elementIdx] as! String == "?" {
+            questionString += "A = ?"
+            
+          } else {
+            questionString += "\(question![elementIdx]) = ?"
+          }
           
           
           let paragraphStyle = NSMutableParagraphStyle()
@@ -112,7 +122,7 @@ class PuzzleViewController: UIViewController {
           // Create the string representation of the variable list
           // and set the UI text view with the contents
           while elementIdx < (variables!.count) {
-            variablesString += "? = \(variables![elementIdx])\n"
+            variablesString += "A = \(variables![elementIdx])\n"
             elementIdx++
           }
           
