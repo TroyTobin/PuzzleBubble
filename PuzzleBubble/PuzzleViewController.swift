@@ -206,6 +206,17 @@ class PuzzleViewController: UIViewController {
       
     } else {
       // pop up alert view to indicate the user may try again
+      let alertController = UIAlertController(title: "Incorrect", message: "Try Again?", preferredStyle: .Alert)
+      
+      let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+        print(action)
+        // Notify the grid view to set the answers in the cells
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadQuestion", object: nil)
+        
+      }
+      alertController.addAction(okayAction)
+      
+      self.presentViewController(alertController, animated: true, completion: nil)
     }
   }
 
