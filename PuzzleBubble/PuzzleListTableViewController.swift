@@ -17,6 +17,9 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    /// Set the notification handler for reloading the table
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTables:", name: "reloadTables", object: nil)
+    
     /// we are a delegate to the table view
     self.tableView.dataSource = self
     self.tableView.delegate = self
@@ -47,6 +50,15 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
       }
     }
   }
+  
+  
+  /// Refresh the table
+  func reloadTables(notification: NSNotification) {
+    dispatch_async(dispatch_get_main_queue(), {
+      self.tableView.reloadData()
+    })
+  }
+  
   
   /// delegate function to return the count of elements
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

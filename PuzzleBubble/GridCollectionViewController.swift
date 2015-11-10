@@ -99,6 +99,10 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
       // If all tiles have been selected check the results order for conformance
       if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
         PBClient.correct = PBClient.sharedInstance.checkPuzzleAnswers()
+        
+        // notify the puzzle view that the user has finished selecting the answers
+        NSNotificationCenter.defaultCenter().postNotificationName("problemSolved", object: nil)
+    
         dispatch_async(dispatch_get_main_queue(), {
           collectionView.reloadData()
         })

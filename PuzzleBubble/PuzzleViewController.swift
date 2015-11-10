@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class PuzzleViewController: UIViewController {
 
@@ -17,6 +18,11 @@ class PuzzleViewController: UIViewController {
   var questionId:String? = nil
   var timer: NSTimer? = nil
   var startDate: Double? = nil
+  
+  /// Managed object context
+  var sharedContext: NSManagedObjectContext {
+    return CoreDataStackManager.sharedInstance().managedObjectContext!
+  }
   
   
   override func viewDidLoad() {
@@ -40,13 +46,14 @@ class PuzzleViewController: UIViewController {
     /// Set the notification handler for reloading the question
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadQuestion:", name: "reloadQuestion",object: nil)
     /// Set the notification handler for reloading the answers
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadAnswers:", name: "reloadAnswers",object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadAnswers:", name: "reloadAnswers", object: nil)
+    /// Set the notification handler for performing actions once the problem has been solved
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "problemSolved:", name: "problemSolved", object: nil)
     
     /// notify listeners they can use the data
     NSNotificationCenter.defaultCenter().postNotificationName("reloadQuestion", object: nil)
   }
-  
-  
+
   /// Refresh the question
   func reloadQuestion(notification: NSNotification) {
     self.startDate = 0.0
@@ -152,6 +159,44 @@ class PuzzleViewController: UIViewController {
   /// Refresh the answers
   func reloadAnswers(notification: NSNotification) {
     self.startDate = Double(PBClient.max_time!);
+  }
+  
+  
+  ///
+  func problemSolved(notification: NSNotification) {
+    self.stopTimer()
+    let max_time  = Double(PBClient.max_time!)
+    let max_score = Double(PBClient.max_score!)
+    
+    let solved_time = self.startDate!
+    
+    let score = max_score*solved_time/max_time;
+    print("Score = \(score)")
+    
+    if (PBClient.correct) {
+      // Add the score to the user
+      let user = PBClient.currentUser
+      
+      user?.score = Int((user?.score)!) + Int(score)
+      
+      print("question id solved = \(self.questionId!)")
+      let dictionary: [String : AnyObject] = [
+        Question.Keys.Id : self.questionId!
+      ]
+      
+      /// Now we create a new Person, using the shared Context
+      let question = Question(dictionary: dictionary, context: sharedContext)
+      let completed = user?.completed as! NSMutableSet
+      completed.addObject(question)
+      
+      CoreDataStackManager.sharedInstance().saveContext()
+      NSNotificationCenter.defaultCenter().postNotificationName("reloadTables", object: nil)
+      
+      self.dismissViewControllerAnimated(true, completion: nil)
+      
+    } else {
+      // pop up alert view to indicate the user may try again
+    }
   }
 
   func stopTimer() {

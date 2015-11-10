@@ -28,6 +28,16 @@ class PuzzleSubListTableViewController: UIViewController, UITableViewDataSource,
     
     /// Set the notification handler for reloading the sub-puzzle table
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadSubPuzzles:", name: "reloadSubPuzzles",object: nil)
+    /// Set the notification handler for reloading the table
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTables:", name: "reloadTables", object: nil)
+  }
+  
+  
+  /// Refresh the table
+  func reloadTables(notification: NSNotification) {
+    dispatch_async(dispatch_get_main_queue(), {
+      self.tableView.reloadData()
+    })
   }
   
   

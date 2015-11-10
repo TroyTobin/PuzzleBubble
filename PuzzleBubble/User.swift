@@ -24,7 +24,7 @@ class User : NSManagedObject {
   @NSManaged var gender: String
   @NSManaged var score: NSNumber
   @NSManaged var isCurrent: Bool
-  @NSManaged var completed: [Question]
+  @NSManaged var completed: NSSet
   
   
   /// initialise the Core data

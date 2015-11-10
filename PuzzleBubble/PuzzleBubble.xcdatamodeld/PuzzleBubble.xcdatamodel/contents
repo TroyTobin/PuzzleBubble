@@ -8,7 +8,7 @@
         <attribute name="isCurrent" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="score" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <relationship name="completed" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Question" syncable="YES"/>
+        <relationship name="completed" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" syncable="YES"/>
     </entity>
     <elements>
         <element name="Question" positionX="-54" positionY="9" width="128" height="60"/>

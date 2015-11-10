@@ -28,6 +28,16 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     
     /// Set the notification handler for reloading the sub-puzzle table
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadLevelQuestions:", name: "reloadLevelQuestions",object: nil)
+    /// Set the notification handler for reloading the table
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadTables:", name: "reloadTables", object: nil)
+  }
+  
+  
+  /// Refresh the table
+  func reloadTables(notification: NSNotification) {
+    dispatch_async(dispatch_get_main_queue(), {
+      self.tableView.reloadData()
+    })
   }
   
   
@@ -84,7 +94,15 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleQuestionCell")! as! PuzzleQustionListViewCell
     
     /// set the cell contents
-    cell.textLabel?.text = "\(PBClient.puzzleGroup!) - \(PBClient.puzzleLevel!): \(indexPath.row + 1)"
+    var completedText = ""
+    for completed in PBClient.currentUser!.completed {
+      let _completed = completed as! Question
+      
+      if _completed.id == self.puzzleQuestions![indexPath.row] as! String {
+          completedText = " - Complete"
+      }
+    }
+    cell.textLabel?.text = "\(PBClient.puzzleGroup!) - \(PBClient.puzzleLevel!): \(indexPath.row + 1) \(completedText)"
     
     return cell
   }
