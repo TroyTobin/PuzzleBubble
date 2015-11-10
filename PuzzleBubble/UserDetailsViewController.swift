@@ -80,6 +80,10 @@ class UserDetailsViewController: UIViewController {
   func reloadUserStats(notification: NSNotification) {
     print ("reload stats")
     
+    if PBClient.currentUser == nil {
+      return
+    }
+    
     let scoreFontAttributes = [
       NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 16.0)!,
       NSForegroundColorAttributeName: UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0),
