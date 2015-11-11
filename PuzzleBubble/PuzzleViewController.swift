@@ -247,6 +247,7 @@ class PuzzleViewController: UIViewController {
   @IBAction func resetQuestion(sender: AnyObject) {
     PBClient.correct = false
     PBClient.selectedAnswers = []
+    self.stopTimer()
     
     // Notify the grid view to set the answers in the cells
     NSNotificationCenter.defaultCenter().postNotificationName("reloadQuestion", object: nil)
@@ -255,6 +256,7 @@ class PuzzleViewController: UIViewController {
   
   /// Dismiss this view controller
   @IBAction func dismissView(sender: AnyObject) {
+    self.stopTimer()
     self.dismissViewControllerAnimated(true, completion: nil)
   }
   

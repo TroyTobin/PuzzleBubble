@@ -22,6 +22,10 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
     /// Set the notification handler for reloading the question
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadAnswers:", name: "reloadAnswers",object: nil)
+    
+    PBClient.answersOrder = []
+    PBClient.selectedAnswers = []
+    PBClient.selectedAnswersOrder = []
   }
   
   func reloadAnswers(notification: NSNotification) {
@@ -41,6 +45,7 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     if PBClient.answers == nil {
       return 0
     }
+    var count = PBClient.answers?.count
     return (PBClient.answers?.count)!
   }
   
@@ -49,12 +54,14 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   /// :param: collectionView The collection view controller
   /// :param: indexPath The index of the item in the collection view
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    
     let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridViewCell
     gridCell.layer.cornerRadius = 10
+    var selectedAnswers = PBClient.selectedAnswers
+    var answers = PBClient.answers
     if (PBClient.selectedAnswers?.count != PBClient.answers?.count) {
       // Get a random index into the answers array
       var randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
+      var answersOrder = PBClient.answersOrder
       while ((PBClient.answersOrder?.containsObject(randIndex))! == true) {
         randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
       }
