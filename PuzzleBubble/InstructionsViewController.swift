@@ -10,6 +10,7 @@
 import Foundation
 import UIKit
 
+/// Class for the instructions view controller
 class InstructionsViewController: UIViewController {
   
   @IBOutlet weak var instructionText: UITextView!

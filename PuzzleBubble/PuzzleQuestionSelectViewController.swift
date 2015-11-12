@@ -9,9 +9,12 @@
 import Foundation
 import UIKit
 
+/// Class for the question select view controller.
+/// This doesn't do much at the moment - just sets the
+/// background color and provides a view dismiss.
+/// May want to do some custom work on this later
 class PuzzleQuestionSelectViewController: UIViewController {
   
-
   @IBOutlet weak var puzzleQuestionList: UIView!
   
   var puzzleLevel: Int? = nil

@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Embedded view for detailed user stats on home page
 class UserDetailsViewController: UIViewController {
   
   @IBOutlet weak var userName: UILabel!
@@ -77,9 +78,8 @@ class UserDetailsViewController: UIViewController {
     }
   }
   
+  /// set the stats on the view elements
   func reloadUserStats(notification: NSNotification) {
-    print ("reload stats")
-    
     if PBClient.currentUser == nil {
       return
     }
@@ -90,7 +90,6 @@ class UserDetailsViewController: UIViewController {
     ]
     
     let num_solved = (PBClient.currentUser?.completed.count)! as Int
-    print("\(num_solved)/\(PBClient.num_puzzles)")
     let completionLabel = NSAttributedString(string: "\(num_solved)/\(PBClient.num_puzzles)", attributes: scoreFontAttributes)
     dispatch_async(dispatch_get_main_queue(), {
       self.completionActivity.hidden = true
@@ -109,7 +108,6 @@ class UserDetailsViewController: UIViewController {
       }
     }
     let level_text = PBClient.score_text![levelIndex] as! String
-    print("\(level_text)")
     let levelTextLabel = NSAttributedString(string: "\(level_text)", attributes: scoreFontAttributes)
     
     dispatch_async(dispatch_get_main_queue(), {

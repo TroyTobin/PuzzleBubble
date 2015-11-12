@@ -45,7 +45,6 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     if PBClient.answers == nil {
       return 0
     }
-    var count = PBClient.answers?.count
     return (PBClient.answers?.count)!
   }
   
@@ -56,12 +55,11 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridViewCell
     gridCell.layer.cornerRadius = 10
-    var selectedAnswers = PBClient.selectedAnswers
-    var answers = PBClient.answers
+    
+    /// we first need to randomise the order of the answers on hte question grid
     if (PBClient.selectedAnswers?.count != PBClient.answers?.count) {
       // Get a random index into the answers array
       var randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
-      var answersOrder = PBClient.answersOrder
       while ((PBClient.answersOrder?.containsObject(randIndex))! == true) {
         randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
       }
@@ -72,28 +70,36 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     else {
       gridCell.gridLabel.text = "\(PBClient.answers![PBClient.answersOrder![indexPath.row] as! Int)"
     }
+    
+    /// Set the grid style
     gridCell.gridLabel.textColor = UIColor.whiteColor()
     gridCell.layer.borderWidth = 2
     gridCell.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
     
     if ((PBClient.selectedAnswersOrder?.containsObject(indexPath.row))! == true) {
       if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
+        /// The user has selected all the tiles and so we need to provide feedback on whether 
+        /// they were correct or not
         if (PBClient.correct) {
+          /// Correct so turn green
           gridCell.gridLabel.backgroundColor = UIColor(red:0.30, green:0.95, blue:0.40, alpha:1.0)
         } else {
+          /// Incorrect so turn red
           gridCell.gridLabel.backgroundColor = UIColor(red:0.95, green:0.30, blue:0.15, alpha:1.0)
         }
       } else {
+        // user has selected this cell so set a different color to provide feedback
         gridCell.gridLabel.backgroundColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
       }
     } else {
+      /// User has not selected so set the background white
       gridCell.gridLabel.backgroundColor = UIColor.whiteColor()
       gridCell.gridLabel.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
     }
     return gridCell
   }
   
-  /// View the selected meme in the MemeViewController
+  /// select the answer indicated by the grid cell
   ///
   /// :param: collectionView The collection view controller
   /// :param: indexPath The index of the item selected

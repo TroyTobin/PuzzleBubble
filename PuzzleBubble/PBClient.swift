@@ -14,6 +14,7 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
   
   var pbNet:PBNetLayer
 
+  // Global variables to store the various state
   static var num_puzzles: Int = 0
   static var score_levels: NSArray? = nil
   static var score_text: NSArray? = nil
@@ -62,6 +63,7 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
     fetchedResultsController.delegate = self
   }
   
+  /// Get the operator from a text description
   class func getOperator() -> String? {
     if PBClient.puzzleGroup == nil {
       return nil
@@ -78,6 +80,8 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
     }
   }
   
+  
+  /// Perform an operation for the 2 input values
   class func doOperator(valueA: Int, valueB: Int) -> Int? {
     if PBClient.puzzleGroup == nil {
       return nil
@@ -102,7 +106,6 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
       if let inError = error {
         completionHandler(results: nil, errorString: inError.localizedDescription)
       } else {
-        print("puzzlegroups = \(result)")
         completionHandler(results: result, errorString: nil)
       }
     }
@@ -127,7 +130,6 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
   
   /// Get the puzzle questions for the puzzle level.
   func getPuzzleQuestions(completionHandler: (results: AnyObject?, errorString: String?) -> Void) {
-    print ("getPuzzleQuestions - puzzleLevel = \(PBClient.puzzleLevel)")
     if let _ = PBClient.puzzleLevel {
       
       /// Retrieve the sub-puzzle group via the PB Network Layer
@@ -172,6 +174,7 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
     }
   }
   
+  /// Determine all answers to the puzzle given the list of variables
   func getPuzzleAnswers(question: NSArray?, variables: NSArray?) -> NSArray {
     let answers : NSMutableArray = []
     if question != nil && variables != nil {
@@ -200,6 +203,8 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
     return answers as NSArray
   }
   
+  
+  /// Check the input answers for correctness
   func checkPuzzleAnswers() -> Bool {
     var i = 0;
     var res = true
@@ -212,7 +217,7 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
     return res
   }
   
-  
+  /// Retrieve stored users from CoreData
   func retrieveUsers() -> NSArray {
   
     // Retrieve the users that are stored

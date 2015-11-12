@@ -9,7 +9,7 @@
 
 import UIKit
 
-/// Table view controller to display the settings
+/// Table view controller to display a list of selectable users
 class ChangeUserListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
   @IBOutlet weak var tableView: UITableView!
@@ -27,10 +27,9 @@ class ChangeUserListViewController: UIViewController, UITableViewDataSource, UIT
     self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
   }
   
-  /// delegate function to return the count of elements
+  /// delegate function to return the count of users
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     let users = PBClient.sharedInstance.retrieveUsers()
-    print ("number of users = \(users.count)")
     return users.count
   }
   
@@ -46,7 +45,6 @@ class ChangeUserListViewController: UIViewController, UITableViewDataSource, UIT
     
     let users = PBClient.sharedInstance.retrieveUsers()
     let userLabel = NSAttributedString(string: users[indexPath.row].name, attributes: settingsFontAttributes)
-    print ("user Name for change = \(users[indexPath.row].name)")
     cell.userName.attributedText = userLabel
     
     return cell
@@ -55,6 +53,7 @@ class ChangeUserListViewController: UIViewController, UITableViewDataSource, UIT
   /// delegate function when cell selected.
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     
+    /// update the current user with the selected one
     let users = PBClient.sharedInstance.retrieveUsers()
     let matchName = (users[indexPath.row] as! User).name
     for user in users {

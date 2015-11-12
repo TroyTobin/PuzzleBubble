@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+/// View controller dto display "about" information
 class AboutViewController: UIViewController {
   
   @IBOutlet weak var aboutText: UITextView!

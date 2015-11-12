@@ -9,14 +9,16 @@
 import Foundation
 import UIKit
 
+/// Class for the Sub puzzle select view controller.
+/// This doesn't do much at the moment - just sets the
+/// background color and provides a view dismiss.
+/// May want to do some custom work on this later
 class PuzzleSubSelectViewController: UIViewController {
   
 
   @IBOutlet weak var subPuzzleGroupList: UIView!
   
-  
   var puzzleGroup: String? = nil
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()

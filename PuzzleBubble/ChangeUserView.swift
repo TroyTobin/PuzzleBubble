@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+/// Class for changing user view controller.
+/// This doesn't do much at the moment - just sets the
+/// background color and provides a view dismiss.
+/// May want to do some custom work on this later
 class ChangeUserViewController: UIViewController {
   
   override func viewDidLoad() {

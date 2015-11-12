@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+/// View controller for displaying user information on home screen
 class UserViewController: UIViewController {
 
   @IBOutlet weak var userView: UIView!
@@ -59,7 +61,6 @@ class UserViewController: UIViewController {
       } else {
         /// Okay so far - but is there a "user" JSON object?
         let metaContainer = results?.valueForKey("results") as? NSArray
-        print ("\(metaContainer)")
         
         // Retrieve the num puzzles
         if let _numPuzzles = metaContainer?[0].valueForKey("num_puzzles") as? Int {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// Table view controller to display the list of Puzzle Groups
+/// Table view controller to display the list of individual questions
 class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
   
@@ -52,18 +52,12 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
       } else {
         /// Okay so far - but is there a "user" JSON object?
         let resultsContainer = results?.valueForKey("results") as? NSArray
-        print("Results container = \(resultsContainer)")
         /// There should only be 1 results which is an array of puzzles
         if resultsContainer?.count == 1 {
-          print ("Count == 1")
           if let puzzleGroup = PBClient.puzzleGroup {
-            print ("puzzleGroup = \(puzzleGroup)")
             if let puzzles = resultsContainer?[0].valueForKey(PBClient.puzzleGroup!) as? NSArray {
-              print ("puzzles = \(puzzles)")
               if let level = puzzles[PBClient.puzzleLevel! - 1] as? NSDictionary {
-                print ("level = \(level)")
                 if let questions = level.valueForKey("questions") as? NSArray {
-                  print ("questions = \(questions)")
                   self.puzzleQuestions = questions
                 }
               }
@@ -121,7 +115,6 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     }
     
     let puzzleController = self.storyboard!.instantiateViewControllerWithIdentifier("PuzzleView") as! PuzzleViewController
-    print ("Quesitons = \(self.puzzleQuestions)")
     puzzleController.questionId = self.puzzleQuestions![indexPath.row] as? String
     
     puzzleController.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal

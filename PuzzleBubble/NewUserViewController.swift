@@ -8,6 +8,7 @@
 import UIKit
 import CoreData
 
+/// View controller for creating a new user
 class NewUserViewController: UIViewController {
   
   @IBOutlet weak var label: UILabel!
@@ -29,6 +30,7 @@ class NewUserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    /// Set some consistent style - should really be some helper function....
     self.input.backgroundColor = UIColor.whiteColor()
     self.input.layer.cornerRadius = 10
     self.input.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor

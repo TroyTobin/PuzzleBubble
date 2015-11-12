@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Table view cell for the puzzle group - additions, subtraction, etc, etc
 class PuzzleListViewCell: UITableViewCell {
   var id: Int? = nil
   var puzzle: String? = nil
