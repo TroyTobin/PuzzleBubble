@@ -22,3 +22,20 @@ an implemented puzzle.  Ideally going forward, a larger Parse plan would be requ
 
 The current limit is at the Subtraction level 8, puzzle 2.  This means that all of the addition puzzles are present for testing.
 Additionally, I have added the first level of each the Multiplication and Subtraction for demonstration purposes.
+
+
+TO RUN
+Simple add the Parse API keys - provided separately and the project will compile and run.
+There is an instruction view (indicated with the ?) on the home page.  This explains how the play the game.
+
+
+To start you will need to create a new user - specify a name and select either the 'boy' or 'girl' icon.
+
+Once this is complete, you will be presented with a view that details your progress.
+To play, press the play button and navigate through the table views to select a puzzle to solve.
+To solve a puzzle you must substitue the variables into the puzzle equation in the order they appear.
+Selecting the cells in the collection view with the answers in the same order will complete a puzzle.
+Note there is a time limit on each puzzle.  If you fail to solve the puzzle in time or you get the order wrong, you will be given the opportunity to try again.
+
+Each time you solve a puzzle the user info in the home screed will be updated as will the table cells to indicate the puzzle is solved.
+
