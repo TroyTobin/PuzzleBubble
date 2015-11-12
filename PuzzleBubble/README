@@ -1,0 +1,24 @@
+Welcome to Puzzle Bubble.
+
+This is a maths puzzle game aimed to teach users the basics of mathematics through speed and accuracy of
+* Addition
+* Subtraction
+* Multiplication
+* Division
+
+It operates from data stored with the Parse Service.  All puzzles are stored as objects on the Parse server
+and are retrieved, parsed and interpreted by the application.  In this manner the application can have its problems easily updated
+without updating the code itself.
+
+The application supports mutliple users and tracks each users progress through the puzzles assigning a score for solving puzzles
+as well as tracking how many of the puzzles have been completed.  This information is stored in core data.
+
+
+CURRENT LIMITATIONS
+The Parse API is the free version and as such is limited by the number of classes that can be stored.  As such
+not all puzzles have been populated.  Each will appear in the selection lists, however if the class limit is reached
+when the puzzle loads an alert view will pop up and indicate as such.  The view will be dismissed so the user can select
+an implemented puzzle.  Ideally going forward, a larger Parse plan would be required to further this application.
+
+The current limit is at the Subtraction level 8, puzzle 2.  This means that all of the addition puzzles are present for testing.
+Additionally, I have added the first level of each the Multiplication and Subtraction for demonstration purposes.

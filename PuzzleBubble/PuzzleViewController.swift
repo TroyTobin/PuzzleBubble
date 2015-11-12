@@ -112,6 +112,18 @@ class PuzzleViewController: UIViewController {
           dispatch_async(dispatch_get_main_queue(), {
             self.PuzzleQuestion.attributedText = questionLabel
           })
+        } else {
+          // pop up alert view to indicate the user may try again
+          let alertController = UIAlertController(title: "Question not implemented", message: "Try Back Later", preferredStyle: .Alert)
+          
+          let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+          }
+          alertController.addAction(okayAction)
+          
+          self.presentViewController(alertController, animated: true, completion: nil)
         }
         
         // Retrieve the variable list
