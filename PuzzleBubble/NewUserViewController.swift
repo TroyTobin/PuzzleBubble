@@ -16,6 +16,8 @@ class NewUserViewController: UIViewController {
   @IBOutlet weak var femaleButton: UIButton!
   @IBOutlet weak var playButton: UIButton!
   
+  var tapRecognizer: UITapGestureRecognizer?
+  
   var name: String? = nil
   var gender: String? = nil
   
@@ -49,6 +51,33 @@ class NewUserViewController: UIViewController {
     self.playButton.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
     
     self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    
+    /// dismiss the keyboard with single tap
+    tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+    tapRecognizer?.numberOfTapsRequired = 1
+    addKeyboardDismissRecognizer()
+    
+  }
+  
+  override func viewWillDisappear(animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    self.removeKeyboardDismissRecognizer()
+  }
+  
+  /// add the keyboard dismiss recogniser
+  func addKeyboardDismissRecognizer() {
+    self.view.addGestureRecognizer(tapRecognizer!)
+  }
+  
+  /// remove the keyboard dismiss recogniser
+  func removeKeyboardDismissRecognizer() {
+    self.view.removeGestureRecognizer(tapRecognizer!)
+  }
+  
+  /// dismiss the keyboard (end editiing) with single tap gesture
+  func handleSingleTap(recognizer: UITapGestureRecognizer) {
+    self.view.endEditing(true)
   }
   
   @IBAction func selectMale(sender: AnyObject) {
