@@ -31,28 +31,28 @@ class NewUserViewController: UIViewController {
     super.viewDidLoad()
     
     /// Set some consistent style - should really be some helper function....
-    self.input.backgroundColor = UIColor.whiteColor()
-    self.input.layer.cornerRadius = 10
-    self.input.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.input.layer.borderWidth = 2.0;
+    input.backgroundColor = UIColor.whiteColor()
+    input.layer.cornerRadius = 10
+    input.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    input.layer.borderWidth = 2.0;
     
-    self.maleButton.backgroundColor = UIColor.whiteColor()
-    self.maleButton.layer.cornerRadius = 10
-    self.maleButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.maleButton.layer.borderWidth = 2.0;
+    maleButton.backgroundColor = UIColor.whiteColor()
+    maleButton.layer.cornerRadius = 10
+    maleButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    maleButton.layer.borderWidth = 2.0;
     
-    self.femaleButton.backgroundColor = UIColor.whiteColor()
-    self.femaleButton.layer.cornerRadius = 10
-    self.femaleButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.femaleButton.layer.borderWidth = 2.0;
+    femaleButton.backgroundColor = UIColor.whiteColor()
+    femaleButton.layer.cornerRadius = 10
+    femaleButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    femaleButton.layer.borderWidth = 2.0;
     
-    self.playButton.backgroundColor = UIColor.whiteColor()
-    self.playButton.layer.cornerRadius = 10
-    self.playButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.playButton.layer.borderWidth = 2.0;
-    self.playButton.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
+    playButton.backgroundColor = UIColor.whiteColor()
+    playButton.layer.cornerRadius = 10
+    playButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    playButton.layer.borderWidth = 2.0;
+    playButton.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
     
-    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
     
     /// dismiss the keyboard with single tap
     tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")

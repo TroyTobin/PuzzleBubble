@@ -18,23 +18,23 @@ class UserViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
-    self.userView.layer.cornerRadius = 10
-    self.userView.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.userView.layer.borderWidth = 2.0;
-    self.playButton.backgroundColor = UIColor.whiteColor()
-    self.playButton.layer.cornerRadius = 10
-    self.playButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.playButton.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
-    self.playButton.layer.borderWidth = 2.0;
-    self.newUser.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
-    self.newUser.backgroundColor = UIColor.whiteColor()
-    self.newUser.layer.cornerRadius = 10
-    self.newUser.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.newUser.layer.borderWidth = 2.0;
-    self.newUser.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
-    self.userView.hidden = true
-    self.playButton.hidden = true
+    view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    userView.layer.cornerRadius = 10
+    userView.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    userView.layer.borderWidth = 2.0;
+    playButton.backgroundColor = UIColor.whiteColor()
+    playButton.layer.cornerRadius = 10
+    playButton.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    playButton.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
+    playButton.layer.borderWidth = 2.0;
+    newUser.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
+    newUser.backgroundColor = UIColor.whiteColor()
+    newUser.layer.cornerRadius = 10
+    newUser.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    newUser.layer.borderWidth = 2.0;
+    newUser.titleLabel?.textColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0)
+    userView.hidden = true
+    playButton.hidden = true
   }
   
   override func viewWillAppear(animated: Bool) {

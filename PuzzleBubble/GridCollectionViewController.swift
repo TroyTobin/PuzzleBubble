@@ -18,8 +18,8 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.collectionView.layer.cornerRadius = 10
-    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    collectionView.layer.cornerRadius = 10
+    view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
     /// Set the notification handler for reloading the question
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadAnswers:", name: "reloadAnswers",object: nil)
     

@@ -17,7 +17,7 @@ class InstructionsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
     instructionText.layer.cornerRadius = 10
     instructionText.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
     instructionText.layer.borderWidth = 2.0;

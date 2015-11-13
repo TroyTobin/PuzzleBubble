@@ -24,7 +24,7 @@ class PuzzleQuestionSelectViewController: UIViewController {
     /// Set the puzzleLevel in the PB Client so it can
     /// be used for further queries
     PBClient.puzzleLevel = puzzleLevel
-    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
         
     /// notify listeners they can use the data
     NSNotificationCenter.defaultCenter().postNotificationName("reloadLevelQuestions", object: nil)

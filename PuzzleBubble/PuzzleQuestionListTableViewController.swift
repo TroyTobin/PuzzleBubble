@@ -19,12 +19,12 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     super.viewDidLoad()
     
     /// we are a delegate to the table view
-    self.tableView.dataSource = self
-    self.tableView.delegate = self
-    self.tableView.layer.cornerRadius = 10
-    self.tableView.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
-    self.tableView.layer.borderWidth = 2.0;
-    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    tableView.dataSource = self
+    tableView.delegate = self
+    tableView.layer.cornerRadius = 10
+    tableView.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    tableView.layer.borderWidth = 2.0;
+    view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
     
     /// Set the notification handler for reloading the sub-puzzle table
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadLevelQuestions:", name: "reloadLevelQuestions",object: nil)

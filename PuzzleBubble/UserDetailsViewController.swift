@@ -24,9 +24,9 @@ class UserDetailsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.layer.cornerRadius = 10
-    
-    self.view.backgroundColor = UIColor.whiteColor()
+    view.layer.cornerRadius = 10
+    view.backgroundColor = UIColor.whiteColor()
+
     let textFontAttributes = [
       NSFontAttributeName : UIFont(name: "Helvetica Neue", size: 10.0)!,
       NSForegroundColorAttributeName: UIColor.whiteColor(),
@@ -40,7 +40,6 @@ class UserDetailsViewController: UIViewController {
     userCompletionLabel.attributedText = completionLabel
     let scoreLabel = NSAttributedString(string: "Score", attributes: textFontAttributes)
     userScoreLabel.attributedText = scoreLabel
-    
     
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadUserStats:", name: "reloadUserStats",object: nil)
 

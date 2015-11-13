@@ -17,7 +17,7 @@ class ChangeUserViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
+    view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
   }
   
   @IBAction func dismissView(sender: AnyObject) {
