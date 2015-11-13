@@ -73,7 +73,7 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     if (PBClient.selectedAnswers?.count != PBClient.answers?.count) {
       // Get a random index into the answers array
       var randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
-      while ((PBClient.answersOrder?.containsObject(randIndex))! == true) {
+      while ((PBClient.answersOrder?.containsObject(randIndex))! == true && PBClient.answers != nil && PBClient.answersOrder?.count < PBClient.answers?.count ) {
         randIndex = Int(arc4random_uniform(UInt32((PBClient.answers?.count)!)))
       }
       PBClient.answersOrder!.insertObject(randIndex, atIndex: (PBClient.answersOrder?.count)!)

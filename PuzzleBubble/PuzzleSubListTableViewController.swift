@@ -51,7 +51,8 @@ class PuzzleSubListTableViewController: UIViewController, UITableViewDataSource,
         let alertController = UIAlertController(title: "Failed to get Puzzle Levels", message: "\(inError)", preferredStyle: .Alert)
         
         let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-          // Do nothing
+          // notify to dismiss the parent view
+          NSNotificationCenter.defaultCenter().postNotificationName("dismissLevelsView", object: nil)
         }
         alertController.addAction(okayAction)
         

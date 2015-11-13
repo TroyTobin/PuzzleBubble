@@ -22,6 +22,7 @@ class PuzzleViewController: UIViewController {
   var timer: NSTimer? = nil
   var startDate: Double? = nil
   var started: Bool = false
+  var reloading: Bool = false
   
   /// Managed object context
   var sharedContext: NSManagedObjectContext {
@@ -35,6 +36,7 @@ class PuzzleViewController: UIViewController {
     /// Set the puzzle question in the PB Client so it can
     /// be used for further queries
     PBClient.questionId = questionId
+    self.reloading = false
     
     /// Update the look of the various view elements so they are consistently styled.
     self.view.backgroundColor = UIColor(red:0.75, green:0.80, blue:0.90, alpha:1)
@@ -60,9 +62,14 @@ class PuzzleViewController: UIViewController {
 
   /// Refresh the question
   func reloadQuestion(notification: NSNotification) {
+    if self.reloading {
+      return
+    }
+    self.reloading = true
     self.startDate = 0.0
     PBClient.max_time = 0
     PBClient.answers = nil
+    
     dispatch_async(dispatch_get_main_queue(), {
       self.PuzzleVariables.text = ""
       self.PuzzleQuestion.text = ""
@@ -81,12 +88,15 @@ class PuzzleViewController: UIViewController {
         
         let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
           // Notify the grid view to set the answers in the cells
-          NSNotificationCenter.defaultCenter().postNotificationName("reloadQuestion", object: nil)
+          self.dismissViewControllerAnimated(true, completion: nil)
           
         }
         alertController.addAction(okayAction)
         
-        self.presentViewController(alertController, animated: true, completion: nil)
+        dispatch_async(dispatch_get_main_queue(), {
+          self.presentViewController(alertController, animated: true, completion: nil)
+        })
+        return
       } else {
         /// Okay so far - but is there a "user" JSON object?
         let resultsContainer = results?.valueForKey("results") as? NSArray
@@ -143,7 +153,10 @@ class PuzzleViewController: UIViewController {
           }
           alertController.addAction(okayAction)
           
-          self.presentViewController(alertController, animated: true, completion: nil)
+          dispatch_async(dispatch_get_main_queue(), {
+            self.presentViewController(alertController, animated: true, completion: nil)
+          })
+          return
         }
         
         // Retrieve the variable list
@@ -195,6 +208,7 @@ class PuzzleViewController: UIViewController {
       }
     }
     self.timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("updateTimer"), userInfo: nil, repeats: true);
+    self.reloading = false
   }
   
   /// Refresh the answers

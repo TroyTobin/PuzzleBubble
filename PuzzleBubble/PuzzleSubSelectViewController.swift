@@ -30,7 +30,13 @@ class PuzzleSubSelectViewController: UIViewController {
     
     /// notify listeners they can use the data
     NSNotificationCenter.defaultCenter().postNotificationName("reloadSubPuzzles", object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "dismissLevelsView:", name: "dismissLevelsView", object: nil)
     
+  }
+  
+  
+  func dismissLevelsView(notification: NSNotification) {
+    self.dismissViewControllerAnimated(true, completion: nil)
   }
   
   /// Dismiss this view controller

@@ -53,7 +53,8 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
         let alertController = UIAlertController(title: "Failed to get Puzzle Questions", message: "\(inError)", preferredStyle: .Alert)
         
         let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-          // Do nothing
+          // notify to dimiss parent view
+          NSNotificationCenter.defaultCenter().postNotificationName("dismissQuestionsView", object: nil)
         }
         alertController.addAction(okayAction)
         

@@ -39,7 +39,8 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
         let alertController = UIAlertController(title: "Failed to get Puzzle groups", message: "\(inError)", preferredStyle: .Alert)
         
         let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
-          // Do nothing
+          // notify the view to dismiss
+          NSNotificationCenter.defaultCenter().postNotificationName("dismissGroupsView", object: nil)
         }
         alertController.addAction(okayAction)
         
