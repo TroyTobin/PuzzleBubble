@@ -61,12 +61,32 @@ class PuzzleViewController: UIViewController {
   /// Refresh the question
   func reloadQuestion(notification: NSNotification) {
     self.startDate = 0.0
+    PBClient.max_time = 0
+    PBClient.answers = nil
+    dispatch_async(dispatch_get_main_queue(), {
+      self.PuzzleVariables.text = ""
+      self.PuzzleQuestion.text = ""
+      self.timerLabel?.text = ""
+    })
+    // set all the activity indicators again
+    NSNotificationCenter.defaultCenter().postNotificationName("reloadAnswers", object: nil)
+    
     /// Retrieve the list of puzzle groups available
     PBClient.sharedInstance.getPuzzleEquation() { results, errorString in
       
       if let inError = errorString {
         /// Error getting the puzzle groups
-        print("Error \(inError)")
+        // pop up alert view to indicate the user may try again
+        let alertController = UIAlertController(title: "Failed to get Question data", message: "\(inError)", preferredStyle: .Alert)
+        
+        let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+          // Notify the grid view to set the answers in the cells
+          NSNotificationCenter.defaultCenter().postNotificationName("reloadQuestion", object: nil)
+          
+        }
+        alertController.addAction(okayAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
       } else {
         /// Okay so far - but is there a "user" JSON object?
         let resultsContainer = results?.valueForKey("results") as? NSArray
@@ -179,8 +199,10 @@ class PuzzleViewController: UIViewController {
   
   /// Refresh the answers
   func reloadAnswers(notification: NSNotification) {
-    self.startDate = Double(PBClient.max_time!);
-    self.started = true
+    if PBClient.max_time != 0 {
+      self.startDate = Double(PBClient.max_time);
+      self.started = true
+    }
   }
   
   
@@ -189,7 +211,7 @@ class PuzzleViewController: UIViewController {
   /// or pop up an alert view indicating the answer order was incorrect
   func problemSolved(notification: NSNotification) {
     self.stopTimer()
-    let max_time  = Double(PBClient.max_time!)
+    let max_time  = Double(PBClient.max_time)
     let max_score = Double(PBClient.max_score!)
     
     let solved_time = self.startDate!

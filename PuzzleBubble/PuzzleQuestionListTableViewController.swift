@@ -48,7 +48,18 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
       
       if let inError = errorString {
         /// Error getting the puzzle groups
-        print("Error \(inError)")
+        
+        /// Error getting the puzzle groups - inform the user
+        let alertController = UIAlertController(title: "Failed to get Puzzle Questions", message: "\(inError)", preferredStyle: .Alert)
+        
+        let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+          // Do nothing
+        }
+        alertController.addAction(okayAction)
+        
+        dispatch_async(dispatch_get_main_queue(), {
+          self.presentViewController(alertController, animated: true, completion: nil)
+        })
       } else {
         /// Okay so far - but is there a "user" JSON object?
         let resultsContainer = results?.valueForKey("results") as? NSArray
@@ -78,7 +89,7 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     if let _ = self.puzzleQuestions {
       return self.puzzleQuestions!.count
     }
-    return 0
+    return 1
   }
   
   /// delegate function to set a cell contents
@@ -88,6 +99,7 @@ class PuzzleQuestionListTableViewController: UIViewController, UITableViewDataSo
     let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleQuestionCell")! as! PuzzleQustionListViewCell
     
     if self.puzzleQuestions == nil || self.puzzleQuestions?.count == 0 {
+      cell.activity.hidden = false
       return cell
     }
     

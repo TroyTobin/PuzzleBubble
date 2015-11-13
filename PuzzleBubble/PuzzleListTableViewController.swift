@@ -35,8 +35,17 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     PBClient.sharedInstance.getPuzzleGroups() { results, errorString in
       
       if let inError = errorString {
-        /// Error getting the puzzle groups
-        print("Error \(inError)")
+        /// Error getting the puzzle groups - inform the user
+        let alertController = UIAlertController(title: "Failed to get Puzzle groups", message: "\(inError)", preferredStyle: .Alert)
+        
+        let okayAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+          // Do nothing
+        }
+        alertController.addAction(okayAction)
+        
+        dispatch_async(dispatch_get_main_queue(), {
+          self.presentViewController(alertController, animated: true, completion: nil)
+        })
       } else {
         /// Okay so far - but is there a "user" JSON object?
         let resultsContainer = results?.valueForKey("results") as? NSArray
@@ -78,6 +87,7 @@ class PuzzleListTableViewController: UIViewController, UITableViewDataSource, UI
     let cell = tableView.dequeueReusableCellWithIdentifier("PuzzleGroupCell")! as! PuzzleListViewCell
     
     if self.puzzles == nil || self.puzzles?.count == 0 {
+      cell.activity.hidden = false
       return cell
     }
     

@@ -50,7 +50,7 @@ class PBNetLayer: NSObject {
     /// Set the App ID and the REST API Key for the request to the parse service
     request.addValue(PBClient.Constants.ParseAPIKey, forHTTPHeaderField: "X-Parse-Application-Id")
     request.addValue(PBClient.Constants.ParseRESTAPIKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
-    
+    request.timeoutInterval = 10
     /// perform the GET request - this is an asyncronous call.
     /// Call the completion handler once returned.
     let task = self.session.dataTaskWithRequest(request) { data, response, error in

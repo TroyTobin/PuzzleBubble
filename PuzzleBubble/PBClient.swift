@@ -22,7 +22,7 @@ class PBClient: NSObject, NSFetchedResultsControllerDelegate {
   static var puzzleLevel: Int? = nil
   static var questionId: String? = nil
   static var question: NSArray? = nil
-  static var max_time:Int? = nil
+  static var max_time:Int = 0
   static var max_score:Int? = nil
   static var variables: NSArray? = nil
   static var answers: NSArray? = nil

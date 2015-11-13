@@ -43,7 +43,7 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
   /// :param: section The index into the collection view
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     if PBClient.answers == nil {
-      return 0
+      return 9
     }
     return (PBClient.answers?.count)!
   }
@@ -56,6 +56,19 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
     let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("gridCell", forIndexPath: indexPath) as! GridViewCell
     gridCell.layer.cornerRadius = 10
     
+    /// Set the grid style
+    gridCell.gridLabel.textColor = UIColor.whiteColor()
+    gridCell.layer.borderWidth = 2
+    gridCell.backgroundColor = UIColor.whiteColor()
+    gridCell.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
+    
+    if (PBClient.answers == nil)
+    {
+      gridCell.gridLabel.hidden = true
+      gridCell.activity.hidden = false
+      return gridCell
+    }
+    gridCell.gridLabel.hidden = false
     /// we first need to randomise the order of the answers on hte question grid
     if (PBClient.selectedAnswers?.count != PBClient.answers?.count) {
       // Get a random index into the answers array
@@ -71,10 +84,6 @@ class GridCollectionViewController: UIViewController, UICollectionViewDataSource
       gridCell.gridLabel.text = "\(PBClient.answers![PBClient.answersOrder![indexPath.row] as! Int)"
     }
     
-    /// Set the grid style
-    gridCell.gridLabel.textColor = UIColor.whiteColor()
-    gridCell.layer.borderWidth = 2
-    gridCell.layer.borderColor = UIColor(red:0.10, green:0.15, blue:0.35, alpha:1.0).CGColor
     
     if ((PBClient.selectedAnswersOrder?.containsObject(indexPath.row))! == true) {
       if (PBClient.selectedAnswers?.count == PBClient.answers?.count) {
